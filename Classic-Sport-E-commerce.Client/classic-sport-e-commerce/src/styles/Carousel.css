@@ -1,16 +1,41 @@
 .carousel-item {
   /* Aggiungi qui gli stili per l'elemento del carosello */
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   background-size: cover;
   background-position: center;
-  height: 400px;
+  position: relative; /* Aggiunto per posizionare l'indicatore all'interno dell'elemento del carosello */
+  height: 400px; 
 }
+
+.carousel-button {
+  /* Rimuovi lo sfondo dai pulsanti del carosello */
+  background: none;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 2em;
+}
+
 
 .carousel-content {
   /* Aggiungi qui gli stili per il contenuto del carosello */
   color: white;
   text-align: center;
   padding: 20px;
+}
+
+.carousel-indicator {
+  /* Aggiungi qui gli stili per l'indicatore del carosello */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  color: white;
+  cursor: pointer;
 }

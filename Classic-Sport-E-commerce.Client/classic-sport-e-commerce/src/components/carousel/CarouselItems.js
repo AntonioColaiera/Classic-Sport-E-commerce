@@ -6,12 +6,12 @@ export const CarouselItems = [
     title: "pROVA",
     description: "pROVAAAAA",
     image: Prova1,
-    link: "",
+    link: "0.1",
   },
   {
     title: "pROVA2",
     description: "pROVAAAAA2",
     image: Prova2,
-    link: "",
+    link: "1",
   },
 ];
