@@ -1,0 +1,56 @@
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+
+.categories {
+  display: flex;
+  list-style: none; /* Remove default list styling */
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none; 
+}
+
+/* Style for subcategory items */
+.subcategories {
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Display subcategories on hover of main categories */
+.categories > li:hover .subcategories {
+  display: block; /* Show subcategories on hover */
+  
+}
+
+.categories .category-link {
+  text-decoration: none; /* Remove underline from category links */
+  margin: 0 10px;
+  font-weight: bold;
+  color: black;
+}
+
+.logo-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.logo-img {
+  
+  border-radius: 50%;
+  background-color: lightgreen;
+}
+
+
+.user-icon {
+  float: right ;
+  margin-top: 15px;
+  margin-right: 20px;
+  
+}

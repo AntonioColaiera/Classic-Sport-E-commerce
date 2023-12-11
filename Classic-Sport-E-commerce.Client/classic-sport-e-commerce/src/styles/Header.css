@@ -1,0 +1,24 @@
+.header {
+    background-color: #212121; 
+    background-color: rgba(33, 33, 33, 0.7); 
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .links-left a {
+    float: left;
+    margin-right: 20px;
+    text-decoration: none;
+    padding: 10px;
+    color:aliceblue; 
+    
+  }
+  
+  .links-right a {
+    float: right;
+    margin-left: 20px;
+    text-decoration: none;
+    padding: 10px;
+    color:aliceblue; 
+  }

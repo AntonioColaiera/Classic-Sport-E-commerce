@@ -1,0 +1,21 @@
+.carousel-item {
+  /* Aggiungi qui gli stili per l'elemento del carosello */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+}
+
+.carousel-content {
+  /* Aggiungi qui gli stili per il contenuto del carosello */
+  color: white;
+  text-align: center;
+  background: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Questo aggiunge un leggero sfondo scuro per migliorare la leggibilità del testo */
+  padding: 20px;
+}
