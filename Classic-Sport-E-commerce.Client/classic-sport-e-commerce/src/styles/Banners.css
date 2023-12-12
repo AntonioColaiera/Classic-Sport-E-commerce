@@ -16,5 +16,16 @@
 }
 
 .banner-icon {
-    width: 100px; 
+    width: 75px; 
+  }
+
+.banner-content{
+    
+    height: 100px
+}
+  
+  .vertical-separator {
+    border-right: 3px solid grey;
+    height: 150px; 
+    margin: 0 10px; 
   }
