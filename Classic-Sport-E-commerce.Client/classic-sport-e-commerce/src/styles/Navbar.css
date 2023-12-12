@@ -1,4 +1,10 @@
 
+.search-icon, .cart-icon, .user-icon, .categories {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
 
 .categories {
   display: flex;
@@ -7,7 +13,7 @@
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  border: solid red; 
+ 
 }
 
 /* Style for subcategory items */
@@ -34,6 +40,7 @@
   flex: 1;
   display: flex;
   justify-content: center;
+  
 }
 
 .logo-img {

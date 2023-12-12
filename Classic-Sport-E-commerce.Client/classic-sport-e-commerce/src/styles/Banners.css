@@ -1,0 +1,20 @@
+.banner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  flex-wrap: wrap;
+}
+
+
+.banner {
+  flex: 1;
+  margin-top: 40px;
+  color: black;
+  height: 250px;
+  text-align: center;
+}
+
+.banner-icon {
+    width: 100px; 
+  }
