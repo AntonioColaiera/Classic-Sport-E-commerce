@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/Navbar.css";
 import logo from "../assets/ClassicSportGift.png";
-import UserIcon from "./login/Login";
+import UserIcon from "./authentication/Authentication";
 import Cart from "./cart/Cart";
 import Search from "./search/Search";
 

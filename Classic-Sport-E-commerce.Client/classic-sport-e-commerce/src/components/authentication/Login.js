@@ -1,7 +1,7 @@
 import React from "react";
 import { FaUser } from "react-icons/fa";
 
-const Login = () => {
+const Authentication = () => {
   return (
     <div>
       <FaUser />
@@ -9,4 +9,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Authentication;
