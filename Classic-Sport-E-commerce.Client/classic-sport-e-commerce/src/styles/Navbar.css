@@ -1,8 +1,3 @@
-.navbar {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-}
 
 
 .categories {
@@ -11,7 +6,8 @@
   padding: 0;
   align-items: center;
   justify-content: center;
-  text-decoration: none; 
+  text-decoration: none;
+  border: solid red; 
 }
 
 /* Style for subcategory items */
@@ -25,7 +21,6 @@
 /* Display subcategories on hover of main categories */
 .categories > li:hover .subcategories {
   display: block; /* Show subcategories on hover */
-  
 }
 
 .categories .category-link {
@@ -42,15 +37,26 @@
 }
 
 .logo-img {
-  
   border-radius: 50%;
   background-color: lightgreen;
 }
 
-
 .user-icon {
-  float: right ;
+  float: right;
   margin-top: 15px;
   margin-right: 20px;
-  
+}
+
+.cart-icon {
+  float: right;
+  margin-top: 15px;
+  margin-right: 40px;
+  font-size: 20px;
+}
+
+.search-icon {
+  float: left;
+  margin-top: 15px;
+  margin-left: 40px;
+  font-size: 20px;
 }
