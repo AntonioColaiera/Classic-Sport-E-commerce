@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { FaUser } from "react-icons/fa";
 import Modal from "react-modal";
-import "../../styles/Authentication.css"; // Importa il file CSS appena creato
+import "./Authentication.css"; 
+import RegistrationForm from "./Signin";
 
 const Authentication = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -26,7 +27,7 @@ const Authentication = () => {
         <h2>Login</h2>
         <button onClick={closeModal}>Close</button>
         <div>
-          {/* Il tuo form di login/registrazione va qui */}
+          <RegistrationForm />
         </div>
       </Modal>
     </div>
