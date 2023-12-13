@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaUser } from "react-icons/fa";
 import Modal from "react-modal";
 import "./Authentication.css"; 
-import RegistrationForm from "./Signin";
+import RegistrationForm from "./RegistrationForm";
 
 const Authentication = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
