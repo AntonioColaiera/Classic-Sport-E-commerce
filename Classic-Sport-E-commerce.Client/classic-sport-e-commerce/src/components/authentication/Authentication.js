@@ -31,7 +31,7 @@ const Authentication = () => {
     <input type="password" name="password" placeholder="Password" required className="formLogin" />
     <button type="submit" className="signIn">Sign In</button>
   </form>
-  <div>
+  <div className="links">
     
     <Link to="/account/register">
     <p>Create your account</p>

@@ -14,11 +14,14 @@ import lombok.*;
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id-customer")
+    @Column(name = "id_customer")
     private Long id;
 
-    @Column(name = "Name", nullable = false, length = 100)
-    private String name;
+    @Column(name = "First_name", length = 255)
+    private String firstName;
+
+    @Column(name = "Last_name", length = 255)
+    private String lastName;
 
     @Column(name = "Email", nullable = false, length = 255)
     private String email;
@@ -26,13 +29,5 @@ public class Customer {
     @Column(name = "Password", nullable = false, length = 255)
     private String password;
 
-    @Column(name = "Address", nullable = false, length = 255)
-    private String address;
-
-    @Column(name = "Phone")
-    private Integer phone;
-
-    @Column(name = "Payment_info", length = 300)
-    private String paymentInfo;
     
 }
