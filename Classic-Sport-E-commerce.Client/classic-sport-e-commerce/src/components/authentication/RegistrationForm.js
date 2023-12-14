@@ -34,7 +34,8 @@ const RegistrationForm = () => {
       .then((response) => {
         if (response.ok) {
           // If the response is OK, notify the user of successful registration
-          alert("Registration successful!");
+          alert("Registration successful!"); 
+          window.location.href = "/"; // Redirect to the root route
         } else {
           // If there are errors or invalid responses from the backend, notify the user of the error
           alert("Error during registration.");
