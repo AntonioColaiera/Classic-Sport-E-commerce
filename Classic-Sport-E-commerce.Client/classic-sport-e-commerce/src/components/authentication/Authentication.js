@@ -24,17 +24,19 @@ const Authentication = () => {
   className="react-modal-content"
   overlayClassName="react-modal-overlay"
 >
-  <button onClick={closeModal} style={{position: 'absolute', left: '10px', top: '10px'}}>Close</button>
+  <button onClick={closeModal} className="closeButton">Close</button>
   <h2>Login</h2>
   <form>
-    <input type="text" name="username" placeholder="Username" required />
-    <input type="password" name="password" placeholder="Password" required />
-    <button type="submit">Login</button>
+    <input type="text" name="username" placeholder="Username" required  className="formLogin"/>
+    <input type="password" name="password" placeholder="Password" required className="formLogin" />
+    <button type="submit" className="signIn">Sign In</button>
   </form>
   <div>
+    
     <Link to="/account/register">
-      <button>Register</button>
+    <p>Create your account</p>
     </Link>
+    <Link>Recover your password</Link>
   </div>
 </Modal>
 

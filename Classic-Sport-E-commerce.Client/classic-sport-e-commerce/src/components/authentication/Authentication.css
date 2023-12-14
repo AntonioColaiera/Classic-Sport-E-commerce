@@ -23,8 +23,37 @@
   width: 60%; /* Imposta la larghezza desiderata */
   max-height: 80%; /* Imposta l'altezza massima desiderata */
   overflow: auto; /* Aggiunge uno scroll se il contenuto è troppo grande */
-  background-color: white;
-  border: 1px solid #ccc;
+  background-color: aliceblue;
+  border: 8px solid black;
   border-radius: 4px;
   padding: 20px;
+}
+
+.formLogin{
+  background-color: beige;
+  border: solid black;
+  border-radius: 20px;
+  margin: 5px;
+  text-align: center;
+}
+
+.closeButton{
+
+  top: 10px; 
+  left: 10px;
+  position: absolute;
+  background-color: black;
+  color: aliceblue;
+  size: 1em; 
+  border-radius: 20px;
+  border:  5px solid aliceblue;
+}
+
+
+.signIn{
+
+  border-radius: 20px;
+  border:  5px solid aliceblue;
+  background-color: gold;
+  border:  1px solid yellow;
 }
