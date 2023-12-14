@@ -47,11 +47,12 @@ const RegistrationForm = () => {
   
     <form onSubmit={handleSubmit} className="form-container">
       {/* Form fields to input data */}
-     <div className="input-up"></div> <input
+      <div className="form">
+     <input
         className='input'
         type='text'
         name='First_name'
-        placeholder='First_name'
+        placeholder='First name'
         onChange={handleChange}
         required
       />
@@ -59,11 +60,11 @@ const RegistrationForm = () => {
         className='input'
         type='text'
         name='Last_name'
-        placeholder='Last_name'
+        placeholder='Last name'
         onChange={handleChange}
         required
       /><div/>
-      <div className="imput-down">
+      <div >
       <input
         className='input'
         type='email'
@@ -80,7 +81,7 @@ const RegistrationForm = () => {
         onChange={handleChange}
         required
       /></div>
-      <button type='submit'>Register</button> {/* Button to submit the form */}
+      <button type='submit' className="createButton">Create</button> {/* Button to submit the form */}</div>
     </form>
   );
 };
