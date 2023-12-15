@@ -16,6 +16,9 @@ public class Item {
     @Column(name = "Id_item")
     private Long id;
 
+    @Column(name = "Tipology", length = 100)
+    private String typology;
+    
     @Column(name = "Image", nullable = false, length = 500)
     private String image;
 
