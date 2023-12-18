@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { toggleCart } from '../redux/actions/cartAction';
 import Modal from 'react-modal';
 import './Cart.css'
+import CartItems from './CartItems'
 
 Modal.setAppElement('#root'); // Questa riga è necessaria per l'accessibilità
 
@@ -28,6 +29,8 @@ export default function Cart() {
         <h2>Il carrello</h2>
         <button onClick={handleCartClick}>Chiudi</button>
         <div>Il carrello è aperto!</div>
+        <CartItems/>
+
       </Modal>
     </div>
   );
