@@ -3,6 +3,7 @@ import { IoCartOutline } from 'react-icons/io5';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleCart } from '../redux/actions/cartAction';
 import Modal from 'react-modal';
+import './Cart.css'
 
 Modal.setAppElement('#root'); // Questa riga è necessaria per l'accessibilità
 
@@ -20,7 +21,9 @@ export default function Cart() {
       <Modal
         isOpen={cartOpen}
         onRequestClose={handleCartClick}
-        contentLabel="Carrello"
+        contentLabel="Cart"
+        className="CartModal"
+        
       >
         <h2>Il carrello</h2>
         <button onClick={handleCartClick}>Chiudi</button>
