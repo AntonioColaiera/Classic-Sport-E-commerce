@@ -25,10 +25,11 @@ export default function Cart() {
         contentLabel="Cart"
         className="CartModal"
        
-      >
-        <h2>Il carrello</h2>
-        <button onClick={handleCartClick}>Chiudi</button>
-        <div>Il carrello è aperto!</div>
+      > <div >
+        <button onClick={handleCartClick} className='title'>x</button>
+        <h2>Shopping Cart</h2>
+        
+        </div>
         <CartItems/>
 
       </Modal>

@@ -1,11 +1,17 @@
 .CartModal {
-
     width: 30%;
     height: 100vh;
     position: fixed;
     right: 0;
     top: 0;
     background-color: aliceblue;
+    text-align: center;
+    padding: 20px;
     
-}
+  }
 
+  .title {
+    display: flex;
+    justify-content: space-between; 
+  }
+  
