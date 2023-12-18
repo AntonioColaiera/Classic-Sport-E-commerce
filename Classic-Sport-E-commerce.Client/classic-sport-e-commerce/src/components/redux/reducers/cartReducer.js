@@ -4,7 +4,7 @@ const initialState = {
   cartOpen: false,
 };
 
-export default function cartReducer(state = initialState, action) {
+const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case TOGGLE_CART:
       return {
@@ -14,4 +14,6 @@ export default function cartReducer(state = initialState, action) {
     default:
       return state;
   }
-}
+};
+
+export default cartReducer;
