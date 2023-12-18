@@ -1,6 +1,5 @@
 .header {
-    background-color: #212121; 
-    background-color: rgba(33, 33, 33, 0.7); 
+  background-color: rgba(143, 180, 187, 0.7);
     border: 1px solid black;
     display: flex;
     justify-content: space-between;
