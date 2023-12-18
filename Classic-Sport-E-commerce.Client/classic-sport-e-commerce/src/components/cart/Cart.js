@@ -23,7 +23,7 @@ export default function Cart() {
         onRequestClose={handleCartClick}
         contentLabel="Cart"
         className="CartModal"
-        
+       
       >
         <h2>Il carrello</h2>
         <button onClick={handleCartClick}>Chiudi</button>
