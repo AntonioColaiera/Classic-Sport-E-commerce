@@ -9,6 +9,7 @@ import RegistrationForm from "./components/authentication/RegistrationForm";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Athletics from "./components/items/Athletics";
 
 const root = document.getElementById("root");
 
@@ -21,6 +22,7 @@ ReactDOM.render(
         <Routes>
           <Route path='/' element={<App />} />
           <Route path='/account/register' element={<RegistrationForm />} />
+          <Route path='/sports/athletics' element={<Athletics />} />
         </Routes>
         <Footer />
       </Router>
