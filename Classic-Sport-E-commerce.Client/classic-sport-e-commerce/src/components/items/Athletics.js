@@ -11,10 +11,10 @@ export default function Athletics() {
   }, []);
 
   return (
-    <div>
+    <div style={{ display: "flex", flexWrap: "wrap" }}>
       {data ? (
         data.map((item) => (
-          <Card key={item.id} item={item} />
+          <Card key={item.id} item={item} style={{ margin: "8px" }} />
         ))
       ) : (
         "Loading..."
