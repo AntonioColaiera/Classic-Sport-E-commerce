@@ -28,6 +28,11 @@ public class ItemController {
     public Item getItemById(@PathVariable Long id) {
         return itemService.getItemById(id);
     }
+    
+    @GetMapping("/byTypology/{typology}")
+    public List<Item> getItemsByTypology(@PathVariable String typology) {
+        return itemService.findByTypology(typology);
+    }
 
     @GetMapping("/all")
     public List<Item> getAllItems() {

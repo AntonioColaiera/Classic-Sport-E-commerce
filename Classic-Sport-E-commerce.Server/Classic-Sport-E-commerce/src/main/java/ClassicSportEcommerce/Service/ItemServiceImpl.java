@@ -29,4 +29,9 @@ public class ItemServiceImpl implements ItemService {
     public List<Item> getAllItems() {
         return itemRepository.findAll();
     }
+    
+    @Override
+    public List<Item> findByTypology(String typology) {
+        return itemRepository.findByTypology(typology);
+    }
 }

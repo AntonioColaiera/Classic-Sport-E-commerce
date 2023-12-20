@@ -10,4 +10,6 @@ public interface ItemService {
     Item getItemById(Long id);
 
     List<Item> getAllItems();
+    
+    List<Item> findByTypology(String typology);
 }
