@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
 import logo from "../assets/ClassicSportGift.png";
 import UserIcon from "./authentication/Authentication";
@@ -12,7 +13,8 @@ const Navbar = () => {
       name: "Sports",
       subcategories: [
         {
-          name: "Sottocategoria 1",
+          name: "Athletics",
+          path: "/sports/athletics"
         },
         {
           name: "Sottocategoria 2",
@@ -67,9 +69,9 @@ const Navbar = () => {
                 {category.subcategories.map((subcategory) => (
                   <li key={subcategory.name}>
                     {/* Subcategory item */}
-                    <a href='#' className='category-link'>
+                    <Link to={subcategory.path} className='category-link'>
                       {subcategory.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
