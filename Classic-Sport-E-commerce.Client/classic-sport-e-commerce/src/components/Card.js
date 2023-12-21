@@ -12,7 +12,8 @@ const Card = ({ item }) => {
 
   return (
     <div className="card">
-      <img src={item.image} alt={item.title} className="card-image" />
+     <img src={require(`../assets/items/${item.image}`)} alt={item.title} className="card-image" />
+
       <div className="card-content">
         <h2 className="card-title">{item.title}</h2>
         <p className="card-description">
