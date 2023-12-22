@@ -42,9 +42,11 @@ const Navbar = () => {
   return (
     // Navbar structure using unordered lists
     <nav className='NAvbar'>
+      <Link to="/">
       <div className='logo-container'>
         <img src={logo} alt='Logo' className='logo-img' />
       </div>
+      </Link>
       <div className='search-icon'>
         <Search />
       </div>

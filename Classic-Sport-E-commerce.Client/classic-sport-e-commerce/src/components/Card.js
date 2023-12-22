@@ -51,7 +51,7 @@ const Cards = ({ item }) => {
           }}
         >
           <div>
-            <Typography variant='body2'>Total price:</Typography>
+            <Typography variant='body2'>Price:</Typography>
             <Typography variant='h5'>${item.price}</Typography>
           </div>
           <Button
@@ -62,7 +62,7 @@ const Cards = ({ item }) => {
             sx={{ alignSelf: "flex-end", fontWeight: 600 }}
             onClick={handleAddToCart}
           >
-            Explore
+            Add To Cart
           </Button>
         </CardContent>
       </div>

@@ -23,9 +23,15 @@ export default function CartItems() {
           <p>Il tuo carrello è vuoto</p>
         </div>
       ) : (
-        <div>
+        <div >
           {cartItems.map(item => (
             <div key={item.id}>
+              <img
+            src={require(`../../assets/items/${item.image}`)} 
+            loading='lazy'
+            alt={item.title}
+          />
+                      
               <h2>{item.title}</h2>
               <p>Typology: {item.typology}</p>
               <p>Price: ${item.price}</p>
