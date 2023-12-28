@@ -27,8 +27,8 @@ export default function CartItems() {
     <div>
       {cartItems.length === 0 ? ( // Condizione: se il carrello è vuoto
         <div>
-          <img src="/path/to/your/image.png" alt="Carrello vuoto" /> {/* Immagine per il carrello vuoto */}
-          <p>Il tuo carrello è vuoto</p> {/* Messaggio se il carrello è vuoto */}
+               <img src="/assets/cartEmpty.jpg" alt="The cart is empty" />
+          <p>The cart is empty</p> {/* Messaggio se il carrello è vuoto */}
         </div>
       ) : ( // Se ci sono elementi nel carrello
         <div>
