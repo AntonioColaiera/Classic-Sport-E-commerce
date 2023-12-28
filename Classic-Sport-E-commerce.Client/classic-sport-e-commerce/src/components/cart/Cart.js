@@ -17,7 +17,7 @@ export default function Cart() {
   };
 
   return (
-    <div>
+    <div >
       <IoCartOutline onClick={handleCartClick} />
       <Modal
         isOpen={cartOpen}

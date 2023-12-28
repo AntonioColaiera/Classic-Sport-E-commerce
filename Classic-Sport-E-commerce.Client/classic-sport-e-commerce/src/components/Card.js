@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addItem } from "./redux/actions/cartAction";
 import Button from "@mui/material/Button";
@@ -14,6 +15,8 @@ const Cards = ({ item }) => {
   const handleAddToCart = () => {
     dispatch(addItem(item));
   };
+
+  const [quantity, setQuantity] = useState(1);
 
   return (
     <MuiCard sx={{ width: 320, margin: 2 }}>
@@ -31,7 +34,7 @@ const Cards = ({ item }) => {
         </IconButton>
         <div style={{ paddingTop: "56.25%", position: "relative" }}>
           <img
-            src={require(`../assets/items/${item.image}`)} 
+            src={require(`../assets/items/${item.image}`)}
             loading='lazy'
             alt={item.title}
             style={{
@@ -65,6 +68,25 @@ const Cards = ({ item }) => {
             Add To Cart
           </Button>
         </CardContent>
+        <div style={{ display: "flex", justifyContent: "center" , margin: "20px"}}>
+          <Button
+            variant='contained'
+            size='small'
+            color='primary'
+            onClick={() => setQuantity((prevQuantity) => prevQuantity + 1)}
+          >
+            +
+          </Button>
+          <Typography variant='h5'>{quantity}</Typography>
+          <Button
+            variant='contained'
+            size='small'
+            color='primary'
+            onClick={() => setQuantity((prevQuantity) => prevQuantity - 1)}
+          >
+            -
+          </Button>
+        </div>
       </div>
     </MuiCard>
   );

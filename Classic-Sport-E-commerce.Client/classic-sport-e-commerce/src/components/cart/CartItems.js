@@ -16,16 +16,16 @@ export default function CartItems() {
   };
 
   return (
-    <div>
+    <div >
       {cartItems.length === 0 ? (
-        <div>
+        <div >
           <img src="/path/to/your/image.png" alt="Carrello vuoto" />
           <p>Il tuo carrello è vuoto</p>
         </div>
       ) : (
         <div >
           {cartItems.map(item => (
-            <div key={item.id}>
+            <div key={item.id} className='item'>
               <img
             src={require(`../../assets/items/${item.image}`)} 
             loading='lazy'
