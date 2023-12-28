@@ -15,32 +15,40 @@ export default function CartItems() {
     dispatch(removeItem(item));
   };
 
+  // Funzione per calcolare il prezzo totale
+  const calculateTotalPrice = () => {
+    return cartItems.reduce((total, item) => total + item.total, 0);
+  };
+
   return (
-    <div >
+    <div>
       {cartItems.length === 0 ? (
-        <div >
+        <div>
           <img src="/path/to/your/image.png" alt="Carrello vuoto" />
           <p>Il tuo carrello è vuoto</p>
         </div>
       ) : (
-        <div >
+        <div>
+          <p>Total Cart Price: ${calculateTotalPrice()}</p> 
           {cartItems.map(item => (
             <div key={item.id} className='item'>
               <img
-            src={require(`../../assets/items/${item.image}`)} 
-            loading='lazy'
-            alt={item.title}
-          />
-                      
+                src={require(`../../assets/items/${item.image}`)} 
+                loading='lazy'
+                alt={item.title}
+              />
               <h2>{item.title}</h2>
               <p>Typology: {item.typology}</p>
-              <p>Price: ${item.price}</p>
-              {/* Aggiungi altre informazioni sull'elemento che desideri mostrare */}
+              <p>Unit Price: ${item.price}</p>
+              <p>Quantity: {item.quantity}</p>
+              <p>Total Price: ${item.total}</p>
               <button onClick={() => handleRemoveItem(item)}>Rimuovi dal carrello</button>
             </div>
           ))}
+          
         </div>
       )}
     </div>
   );
-}
+};
+

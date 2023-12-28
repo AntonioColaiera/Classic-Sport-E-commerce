@@ -9,13 +9,20 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import BookmarkAdd from "@mui/icons-material/BookmarkAddOutlined";
 
+// Component for displaying items
 const Cards = ({ item }) => {
   const dispatch = useDispatch();
 
+  // Function to handle adding item to cart
   const handleAddToCart = () => {
-    dispatch(addItem(item));
+    // Create a copy of the item object and add the quantity property
+    const itemWithQuantity = { ...item, quantity };
+    
+    // Send the itemWithQuantity object to your addItem action
+    dispatch(addItem(itemWithQuantity));
   };
 
+  // State for quantity
   const [quantity, setQuantity] = useState(1);
 
   return (
