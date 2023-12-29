@@ -17,6 +17,22 @@ export default function CartItems() {
     dispatch(removeItem(item)); // Dispatch dell'azione per rimuovere un elemento dal carrello
   };
 
+  // Funzione per gestire l'incremento della quantità di un elemento nel carrello
+  const handleIncrementQuantity = (item) => {
+    dispatch(addItem(item)); // Aggiunge un'unità dell'elemento al carrello
+  };
+
+  // Funzione per gestire la riduzione della quantità di un elemento nel carrello
+  const handleDecrementQuantity = (item) => {
+    // Controlla se la quantità è maggiore di 1 per poter diminuire
+    if (item.quantity > 1) {
+      dispatch(removeItem(item)); // Rimuove un'unità dell'elemento dal carrello
+    } else {
+      // Possibile gestione per informare l'utente che la quantità minima è 1
+      console.log("La quantità minima è 1");
+    }
+  };
+
   // Funzione per calcolare il prezzo totale del carrello
   const calculateTotalPrice = () => {
     // Riduce gli elementi nel carrello per calcolare il prezzo totale
@@ -35,33 +51,37 @@ export default function CartItems() {
         <div>
           <p>Total Cart Price: ${calculateTotalPrice()}</p>{" "}
           {/* Visualizza il prezzo totale del carrello */}
-          {cartItems.map(
-            (
-              item // Mappa gli elementi nel carrello per mostrarli
-            ) => (
-              <div key={item.id} className='item'>
-                {" "}
-                {/* Elemento individuale nel carrello */}
-                <img
-                  src={`/assets/items/${item.image}`}
-                  loading='lazy'
-                  alt={item.title}
-                />
-                <h2>{item.title}</h2> {/* Titolo dell'elemento */}
-                <p>Typology: {item.typology}</p> {/* Tipologia dell'elemento */}
-                <p>Unit Price: ${item.price}</p>{" "}
-                {/* Prezzo unitario dell'elemento */}
-                <p>Quantity: {item.quantity}</p>{" "}
-                {/* Quantità dell'elemento nel carrello */}
-                <p>Total Price: ${item.total}</p>{" "}
-                {/* Prezzo totale per l'elemento (quantità * prezzo unitario) */}
-                <button onClick={() => handleRemoveItem(item)}>
-                  Rimuovi dal carrello
-                </button>{" "}
-                {/* Pulsante per rimuovere l'elemento dal carrello */}
-              </div>
-            )
-          )}
+          {cartItems.map((item) => (
+            <div key={item.id} className='item'>
+              {" "}
+              {/* Elemento individuale nel carrello */}
+              <img
+                src={`/assets/items/${item.image}`}
+                loading='lazy'
+                alt={item.title}
+              />
+              <h2>{item.title}</h2> {/* Titolo dell'elemento */}
+              <p>Typology: {item.typology}</p> {/* Tipologia dell'elemento */}
+              <p>Unit Price: ${item.price}</p>{" "}
+              {/* Prezzo unitario dell'elemento */}
+              <p>Quantity: {item.quantity}</p>{" "}
+              {/* Quantità dell'elemento nel carrello */}
+              <p>Total Price: ${item.total}</p>{" "}
+              {/* Prezzo totale per l'elemento (quantità * prezzo unitario) */}
+              <button onClick={() => handleRemoveItem(item)}>
+                Rimuovi dal carrello
+              </button>{" "}
+              {/* Pulsante per rimuovere l'elemento dal carrello */}
+              <button onClick={() => handleDecrementQuantity(item)}>
+                Diminuisci Quantità
+              </button>{" "}
+              {/* Pulsante per diminuire la quantità */}
+              <button onClick={() => handleIncrementQuantity(item)}>
+                Aumenta Quantità
+              </button>{" "}
+              {/* Pulsante per aumentare la quantità */}
+            </div>
+          ))}
         </div>
       )}
     </div>
