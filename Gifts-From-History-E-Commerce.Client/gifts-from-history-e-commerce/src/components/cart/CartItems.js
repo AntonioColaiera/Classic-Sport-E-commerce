@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addItem, removeItem } from "../redux/actions/cartAction";
+import { addItem, removeItem, increaseQuantity, decreaseQuantity } from "../redux/actions/cartAction";
 import "./CartItems.css"; // Stili CSS per questa sezione
 
 export default function CartItems() {
@@ -17,18 +17,15 @@ export default function CartItems() {
     dispatch(removeItem(item)); // Dispatch dell'azione per rimuovere un elemento dal carrello
   };
 
-  // Funzione per gestire l'incremento della quantità di un elemento nel carrello
   const handleIncrementQuantity = (item) => {
-    dispatch(addItem(item)); // Aggiunge un'unità dell'elemento al carrello
+    dispatch(increaseQuantity(item)); // Aggiorna la quantità dell'elemento nel carrello
   };
 
   // Funzione per gestire la riduzione della quantità di un elemento nel carrello
   const handleDecrementQuantity = (item) => {
-    // Controlla se la quantità è maggiore di 1 per poter diminuire
     if (item.quantity > 1) {
-      dispatch(removeItem(item)); // Rimuove un'unità dell'elemento dal carrello
+      dispatch(decreaseQuantity(item)); // Aggiorna la quantità dell'elemento nel carrello
     } else {
-      // Possibile gestione per informare l'utente che la quantità minima è 1
       console.log("La quantità minima è 1");
     }
   };
@@ -66,20 +63,20 @@ export default function CartItems() {
               {/* Prezzo unitario dell'elemento */}
               <p>Quantity: {item.quantity}</p>{" "}
               {/* Quantità dell'elemento nel carrello */}
+              <button onClick={() => handleDecrementQuantity(item)}>
+                -
+              </button>{" "}
+              {/* Pulsante per diminuire la quantità */}
+              <button onClick={() => handleIncrementQuantity(item)}>
+                +
+              </button>{" "}
+              {/* Pulsante per aumentare la quantità */}
               <p>Total Price: ${item.total}</p>{" "}
               {/* Prezzo totale per l'elemento (quantità * prezzo unitario) */}
               <button onClick={() => handleRemoveItem(item)}>
                 Rimuovi dal carrello
               </button>{" "}
               {/* Pulsante per rimuovere l'elemento dal carrello */}
-              <button onClick={() => handleDecrementQuantity(item)}>
-                Diminuisci Quantità
-              </button>{" "}
-              {/* Pulsante per diminuire la quantità */}
-              <button onClick={() => handleIncrementQuantity(item)}>
-                Aumenta Quantità
-              </button>{" "}
-              {/* Pulsante per aumentare la quantità */}
             </div>
           ))}
         </div>
