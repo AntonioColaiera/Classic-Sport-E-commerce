@@ -14,7 +14,10 @@ public interface CustomerService {
 
     // Retrieves all customers existing in the system
     List<Customer> getAllCustomers();
+    
+    // Retrieves a customer by their email address
+    Customer getCustomerByEmail(String email);
 
     // Other specific business operations related to customers
-    // ...
+  
 }

@@ -4,12 +4,10 @@ import "./RegistrationForm.css";
 const RegistrationForm = () => {
   // State to manage form data
   const [formData, setFormData] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     password: "",
-    address: "",
-    phone: "",
-    paymentInfo: "",
   });
 
   // Function to handle changes in form fields
@@ -34,7 +32,7 @@ const RegistrationForm = () => {
       .then((response) => {
         if (response.ok) {
           // If the response is OK, notify the user of successful registration
-          alert("Registration successful!"); 
+          alert("Registration successful!");
           window.location.href = "/"; // Redirect to the root route
         } else {
           // If there are errors or invalid responses from the backend, notify the user of the error
@@ -45,44 +43,49 @@ const RegistrationForm = () => {
   };
 
   return (
-  
-    <form onSubmit={handleSubmit} className="form-container">
+    <form onSubmit={handleSubmit} className='form-container'>
       {/* Form fields to input data */}
-      <div className="form">
-     <input
-        className='input'
-        type='text'
-        name='First_name'
-        placeholder='First name'
-        onChange={handleChange}
-        required
-      />
-      <input
-        className='input'
-        type='text'
-        name='Last_name'
-        placeholder='Last name'
-        onChange={handleChange}
-        required
-      /><div/>
-      <div >
-      <input
-        className='input'
-        type='email'
-        name='email'
-        placeholder='Email'
-        onChange={handleChange}
-        required
-      />
-      <input
-        className='input'
-        type='password'
-        name='password'
-        placeholder='Password'
-        onChange={handleChange}
-        required
-      /></div>
-      <button type='submit' className="createButton">Create</button> {/* Button to submit the form */}</div>
+      <div className='form'>
+        <input
+          className='input'
+          type='text'
+          name='firstName'
+          placeholder='First name'
+          onChange={handleChange}
+          required
+        />
+        <input
+          className='input'
+          type='text'
+          name='lastName'
+          placeholder='Last name'
+          onChange={handleChange}
+          required
+        />
+        <div />
+        <div>
+          <input
+            className='input'
+            type='email'
+            name='email'
+            placeholder='Email'
+            onChange={handleChange}
+            required
+          />
+          <input
+            className='input'
+            type='password'
+            name='password'
+            placeholder='Password'
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <button type='submit' className='createButton'>
+          Create
+        </button>{" "}
+        {/* Button to submit the form */}
+      </div>
     </form>
   );
 };

@@ -4,6 +4,8 @@ package ClassicSportEcommerce.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import ClassicSportEcommerce.Model.Customer;
@@ -37,6 +39,17 @@ public class CustomerController {
     @GetMapping("/all")
     public List<Customer> getAllCustomers() {
         return customerService.getAllCustomers();
+    }
+
+    
+    @PostMapping("/login")
+    public ResponseEntity<Customer> authenticate(@RequestBody Customer customer) {
+      Customer existingCustomer = customerService.getCustomerByEmail(customer.getEmail());
+      if (existingCustomer != null && existingCustomer.getPassword().equals(customer.getPassword())) {
+        return new ResponseEntity<>(existingCustomer, HttpStatus.OK);
+      } else {
+        return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+      }
     }
 
     // Other endpoints for specific customer operations

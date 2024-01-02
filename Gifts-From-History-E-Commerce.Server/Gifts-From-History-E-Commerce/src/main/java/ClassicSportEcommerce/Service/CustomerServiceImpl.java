@@ -1,6 +1,7 @@
 package ClassicSportEcommerce.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -35,6 +36,13 @@ public class CustomerServiceImpl implements CustomerService {
     public List<Customer> getAllCustomers() {
         // Implement business logic to fetch all customers
         return customerRepository.findAll();
+    }
+
+    // Logic to fetch a customer by email
+    @Override
+    public Customer getCustomerByEmail(String email) {
+        Optional<Customer> customerOptional = customerRepository.findByEmail(email);
+        return customerOptional.orElse(null);
     }
 
     // Other specific business operations implementations
