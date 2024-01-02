@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaUser } from "react-icons/fa";
 import Modal from "react-modal";
 import { Link } from "react-router-dom";
-import "./Authentication.css"; 
+import "./Authentication.css";
 import { Login } from "./Login";
 
 const Authentication = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isAuthenticated, setIsAuthenticated] = useState(false); // Nuovo stato per tracciare l'autenticazione
 
   const openModal = () => {
     setModalIsOpen(true);
@@ -23,37 +24,74 @@ const Authentication = () => {
     try {
       const data = await Login(email, password);
       console.log(data);
-      // Here you can handle the data returned from the Login component
-      alert("Authentication successful!"); // Show a confirmation message
+      setIsAuthenticated(true); // Set authentication to true
+      localStorage.setItem("isAuthenticated", "true"); // Store authentication in localStorage
       closeModal(); // Close the modal
     } catch (error) {
       console.error(error);
-      alert("Authentication failed"); // Show an error message
     }
   };
-  
+
+  const handleLogout = () => {
+    setIsAuthenticated(false); // Set authentication to false
+    localStorage.removeItem("isAuthenticated"); // Remove authentication from localStorage
+  };
+
+  // When the component is mounted, check the authentication state in localStorage
+  useEffect(() => {
+    const storedAuthentication = localStorage.getItem("isAuthenticated");
+    setIsAuthenticated(storedAuthentication === "true");
+  }, []);
+
   return (
-    <div>
+    <div >
       <FaUser onClick={openModal} />
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        className="react-modal-content"
-        overlayClassName="react-modal-overlay"
+        className='react-modal-content'
+        overlayClassName='react-modal-overlay'
       >
-        <button onClick={closeModal} className="closeButton">Close</button>
-        <h2>Login</h2>
-        <form onSubmit={handleSignIn}>
-          <input type="text" name="email" placeholder="Email" required  className="formLogin" onChange={e => setEmail(e.target.value)} />
-          <input type="password" name="password" placeholder="Password" required className="formLogin" onChange={e => setPassword(e.target.value)} />
-          <button type="submit" className="signIn">Sign In</button>
-        </form>
-        <div className="links">
-          <Link to="/account/register">
-            <p>Create your account</p>
-          </Link>
-          <Link>Recover your password</Link>
-        </div>
+        {isAuthenticated ? (
+          <div className="centered-logOut"  >
+            <h2 >You are logged in!</h2>
+            <button onClick={handleLogout} className="logOut">Logout</button>
+          </div>
+        ) : (
+          <div>
+            <button onClick={closeModal} className='closeButton'>
+              Close
+            </button>
+            <h2>Login</h2>
+            <form onSubmit={handleSignIn}>
+              <input
+                type='text'
+                name='email'
+                placeholder='Email'
+                required
+                className='formLogin'
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <input
+                type='password'
+                name='password'
+                placeholder='Password'
+                required
+                className='formLogin'
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <button type='submit' className='signIn'>
+                Sign In
+              </button>
+            </form>
+            <div className='links'>
+              <Link to='/account/register'>
+                <p>Create your account</p>
+              </Link>
+              <Link>Recover your password</Link>
+            </div>
+          </div>
+        )}
       </Modal>
     </div>
   );
