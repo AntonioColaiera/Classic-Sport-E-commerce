@@ -9,7 +9,8 @@ const Authentication = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isAuthenticated, setIsAuthenticated] = useState(false); // Nuovo stato per tracciare l'autenticazione
+  const [isAuthenticated, setIsAuthenticated] = useState(false); 
+  const [userDetails, setUserDetails] = useState(null);// Nuovo stato per tracciare l'autenticazione
 
   const openModal = () => {
     setModalIsOpen(true);
@@ -25,6 +26,7 @@ const Authentication = () => {
       const data = await Login(email, password);
       console.log(data);
       setIsAuthenticated(true); // Set authentication to true
+      setUserDetails(data); // Memorizza i dettagli dell'utente
       localStorage.setItem("isAuthenticated", "true"); // Store authentication in localStorage
       closeModal(); // Close the modal
     } catch (error) {
@@ -46,6 +48,9 @@ const Authentication = () => {
   return (
     <div >
       <FaUser onClick={openModal} />
+      {isAuthenticated && userDetails && (
+        <span>{`${userDetails.firstName} ${userDetails.lastName}`}</span>
+      )}
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
