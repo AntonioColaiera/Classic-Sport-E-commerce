@@ -90,3 +90,9 @@
   align-items: center;
   flex-direction: column;
 }
+
+.userdetails {
+
+  margin-left: 1.3em;
+  margin-bottom: 1em;
+}

@@ -9,8 +9,8 @@ const Authentication = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isAuthenticated, setIsAuthenticated] = useState(false); 
-  const [userDetails, setUserDetails] = useState(null);// Nuovo stato per tracciare l'autenticazione
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userDetails, setUserDetails] = useState(null); // Nuovo stato per tracciare l'autenticazione
 
   const openModal = () => {
     setModalIsOpen(true);
@@ -24,11 +24,11 @@ const Authentication = () => {
     event.preventDefault();
     try {
       const data = await Login(email, password);
-      console.log(data);
-      setIsAuthenticated(true); // Set authentication to true
-      setUserDetails(data); // Memorizza i dettagli dell'utente
-      localStorage.setItem("isAuthenticated", "true"); // Store authentication in localStorage
-      closeModal(); // Close the modal
+      setIsAuthenticated(true);
+      setUserDetails(data);
+      localStorage.setItem("isAuthenticated", "true");
+      localStorage.setItem("userDetails", JSON.stringify(data)); // Store user details in localStorage
+      closeModal();
     } catch (error) {
       console.error(error);
     }
@@ -42,15 +42,20 @@ const Authentication = () => {
   // When the component is mounted, check the authentication state in localStorage
   useEffect(() => {
     const storedAuthentication = localStorage.getItem("isAuthenticated");
+    const storedUserDetails = JSON.parse(localStorage.getItem("userDetails")); // Retrieve user details from localStorage
     setIsAuthenticated(storedAuthentication === "true");
+    setUserDetails(storedUserDetails); // Set user details from localStorage
   }, []);
 
   return (
-    <div >
+    <div>
       <FaUser onClick={openModal} />
+      {console.log("Authentication status:", isAuthenticated)}
+      {console.log("User details:", userDetails)}
       {isAuthenticated && userDetails && (
-        <span>{`${userDetails.firstName} ${userDetails.lastName}`}</span>
+        <span className="userdetails">{`${userDetails.firstName} ${userDetails.lastName}`}</span>
       )}
+
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
@@ -58,9 +63,11 @@ const Authentication = () => {
         overlayClassName='react-modal-overlay'
       >
         {isAuthenticated ? (
-          <div className="centered-logOut"  >
-            <h2 >You are logged in!</h2>
-            <button onClick={handleLogout} className="logOut">Logout</button>
+          <div className='centered-logOut'>
+            <h2>You are logged in!</h2>
+            <button onClick={handleLogout} className='logOut'>
+              Logout
+            </button>
           </div>
         ) : (
           <div>
