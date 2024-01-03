@@ -48,8 +48,14 @@ export default function CartItems() {
         <div>
           <p>Total Cart Price: ${calculateTotalPrice()}</p>{" "}
           {/* Visualizza il prezzo totale del carrello */}
+          {cartItems.length > 0 && (
+            <button className="proceed-button">
+              PROCEED WITH YOUR ORDER
+            </button>
+          )}
           {cartItems.map((item) => (
             <div key={item.id} className='item'>
+              
               {" "}
               {/* Elemento individuale nel carrello */}
               <img
@@ -78,7 +84,9 @@ export default function CartItems() {
               </button>{" "}
               {/* Pulsante per rimuovere l'elemento dal carrello */}
             </div>
+            
           ))}
+    
         </div>
       )}
     </div>
