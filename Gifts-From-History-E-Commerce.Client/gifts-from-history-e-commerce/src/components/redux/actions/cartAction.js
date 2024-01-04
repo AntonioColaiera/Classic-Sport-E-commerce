@@ -1,8 +1,7 @@
 export const TOGGLE_CART = 'TOGGLE_CART';
 export const ADD_ITEM = 'ADD_ITEM';
 export const REMOVE_ITEM = 'REMOVE_ITEM';
-export const INCREASE_QUANTITY = 'INCREASE_QUANTITY'; 
-export const DECREASE_QUANTITY = 'DECREASE_QUANTITY'; 
+export const UPDATE_QUANTITY = 'UPDATE_QUANTITY'; 
 
 export const toggleCart = () => ({
   type: TOGGLE_CART,
@@ -18,14 +17,12 @@ export const removeItem = item => ({
   payload: item
 });
 
-// Nuovo creatore di azioni per aumentare la quantità
-export const increaseQuantity = item => ({
-  type: INCREASE_QUANTITY,
-  payload: item
-});
-
-// Nuovo creatore di azioni per diminuire la quantità
-export const decreaseQuantity = item => ({
-  type: DECREASE_QUANTITY,
-  payload: item
+// Nuovo creatore di azioni per aggiornare la quantità
+export const updateQuantity = (item, quantity) => ({
+  type: UPDATE_QUANTITY,
+  payload: {
+    ...item,
+    quantity: quantity,
+    total: item.price * quantity, // Aggiorna il prezzo totale qui
+  }
 });
