@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addItem, removeItem, updateQuantity } from "../redux/actions/cartAction";
 import "./CartItems.css"; // Stili CSS per questa sezione
+import  Login  from '../authentication/Login.js';
 
 export default function CartItems() {
   const dispatch = useDispatch(); // Hook useDispatch per l'invio delle azioni Redux
@@ -50,6 +51,11 @@ return (
       <div>
         <p>Total Cart Price: ${calculateTotalPrice()}</p>{" "}
         {/* Visualizza il prezzo totale del carrello */}
+        {cartItems.length > 0 && (
+            <button className="proceed-button">
+              PROCEED WITH YOUR ORDER
+            </button>
+          )}
         {cartItems.map((item) => (
           <div key={item.id} className='item'>
             {" "}
