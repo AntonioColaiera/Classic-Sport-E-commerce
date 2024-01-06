@@ -12,6 +12,11 @@ export default function Cart() {
   const dispatch = useDispatch();
   const cartOpen = useSelector(state => state.cart.cartOpen);
 
+  
+  console.log('cartOpen:', cartOpen);
+  
+ 
+
   const handleCartClick = () => {
     dispatch(toggleCart());
   };

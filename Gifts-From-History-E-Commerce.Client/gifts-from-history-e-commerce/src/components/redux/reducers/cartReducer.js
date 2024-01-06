@@ -47,18 +47,29 @@ const cartReducer = (state = initialState, action) => {
         ...state,
         cartItems: state.cartItems.filter(item => item.id !== action.payload.id),
       };
-    case UPDATE_QUANTITY: {
-      // Find the index of the existing item in the cart
-      const existingItemIndex = state.cartItems.findIndex(
-        (item) => item.id === action.payload.id
-      );
-
-      // Replace the existing item with the updated item
-      const updatedItems = [...state.cartItems];
-      updatedItems[existingItemIndex] = action.payload;
-
-      return { ...state, cartItems: updatedItems };
-    }
+      case UPDATE_QUANTITY: {
+        // Verifica che cartItems sia un array
+        if (!Array.isArray(state.cartItems)) {
+          return state;
+        }
+      
+        const updatedCartItems = state.cartItems.map((item) => {
+          if (item.id === action.payload.id) {
+            return {
+              ...item,
+              quantity: action.payload.quantity,
+              total: action.payload.total,
+            };
+          }
+          return item;
+        });
+      
+        return {
+          ...state,
+          cartItems: updatedCartItems,
+        };
+      }
+      
     default:
       return state;
   }

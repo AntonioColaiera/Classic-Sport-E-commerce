@@ -8,7 +8,7 @@ const loadState = () => {
     if (serializedState === null) {
       return undefined;
     }
-    return { cart: { cartItems: JSON.parse(serializedState) } };
+    return JSON.parse(serializedState);
   } catch (err) {
     return undefined;
   }
@@ -17,14 +17,14 @@ const loadState = () => {
 // Salva lo stato nel localStorage
 const saveState = (state) => {
   try {
-    const serializedState = JSON.stringify(state.cart.cartItems);
+    const serializedState = JSON.stringify(state);
     localStorage.setItem('cartItems', serializedState);
   } catch {
     // ignora gli errori di scrittura
   }
 };
 
-const persistedState = loadState();
+const persistedState = loadState() || { cartItems: [] };
 
 const store = configureStore({
   reducer: {
@@ -34,7 +34,7 @@ const store = configureStore({
 });
 
 store.subscribe(() => {
-  saveState(store.getState());
+  saveState(store.getState().cart.cartItems);
 });
 
 export default store;

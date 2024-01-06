@@ -6,7 +6,11 @@ import  Login  from '../authentication/Login.js';
 
 export default function CartItems() {
   const dispatch = useDispatch(); // Hook useDispatch per l'invio delle azioni Redux
-  const cartItems = useSelector((state) => state.cart.cartItems); // Selezione degli elementi nel carrello dallo stato Redux
+  const cartItems = useSelector((state) => {
+    const items = state.cart.cartItems;
+    console.log('cartItems:', items); // Aggiungi un log qui
+    return items;
+  }); // Selezione degli elementi nel carrello dallo stato Redux
 
   // Funzione per gestire l'aggiunta di un elemento al carrello
   const handleAddItem = (item) => {
@@ -31,12 +35,18 @@ export default function CartItems() {
     }
   };
 
-  // Funzione per calcolare il prezzo totale del carrello
   const calculateTotalPrice = () => {
+    // Verifica se cartItems è un array prima di usare reduce
+    if (!Array.isArray(cartItems)) {
+      console.error('cartItems is not an array'); // Logga un errore per individuare il problema
+      console.log('cartItems:', cartItems); // Aggiungi un log per visualizzare cartItems
+      return 0; // o un valore di default se cartItems non è un array
+    }
+  
     // Riduce gli elementi nel carrello per calcolare il prezzo totale
     return cartItems.reduce((total, item) => total + item.total, 0);
   };
-
+  
   
 
 return (
