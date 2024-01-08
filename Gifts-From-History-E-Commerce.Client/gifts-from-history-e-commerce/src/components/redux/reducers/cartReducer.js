@@ -70,6 +70,13 @@ const cartReducer = (state = initialState, action) => {
         };
       }
       
+      case 'LOAD_CART_ITEMS':
+  return {
+    ...state,
+    cartItems: action.payload, // Sovrascrivi gli elementi del carrello con quelli caricati da localStorage
+  };
+
+  
     default:
       return state;
   }

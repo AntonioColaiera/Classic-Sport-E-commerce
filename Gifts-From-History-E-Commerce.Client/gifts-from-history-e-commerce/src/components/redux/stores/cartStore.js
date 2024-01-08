@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import cartReducer from '../reducers/cartReducer';
+import { loadCartItems } from '../actions/cartAction';
 
 // Carica lo stato dal localStorage
 const loadState = () => {
@@ -32,6 +33,15 @@ const store = configureStore({
   },
   preloadedState: persistedState,
 });
+
+// Aggiunto codice per caricare gli elementi del carrello all'avvio dello store
+const initialCartItems = store.getState().cart.cartItems;
+if (initialCartItems.length === 0) {
+  const loadedItems = loadState();
+  if (loadedItems) {
+    store.dispatch(loadCartItems(loadedItems));
+  }
+}
 
 store.subscribe(() => {
   saveState(store.getState().cart.cartItems);

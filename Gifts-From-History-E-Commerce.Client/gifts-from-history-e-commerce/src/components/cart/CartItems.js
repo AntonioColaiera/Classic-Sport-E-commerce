@@ -1,53 +1,77 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addItem, removeItem, updateQuantity } from "../redux/actions/cartAction";
-import "./CartItems.css"; // Stili CSS per questa sezione
-import  Login  from '../authentication/Login.js';
+import "./CartItems.css";
+import Login from '../authentication/Login.js';
 
 export default function CartItems() {
-  const dispatch = useDispatch(); // Hook useDispatch per l'invio delle azioni Redux
-  const cartItems = useSelector((state) => {
-    const items = state.cart.cartItems;
-    console.log('cartItems:', items); // Aggiungi un log qui
-    return items;
-  }); // Selezione degli elementi nel carrello dallo stato Redux
+  console.log('Inizio del componente CartItems');
+  const dispatch = useDispatch();
+  let cartItems = useSelector((state) => state.cart.cartItems);
+
+  useEffect(() => {
+    console.log('Prima del caricamento dei dati dal localStorage');
+    const savedCartItems = JSON.parse(localStorage.getItem('cartItems'));
+    console.log('Dati caricati dal localStorage:', savedCartItems);
+    if (savedCartItems) {
+      dispatch({ type: 'LOAD_CART_ITEMS', payload: savedCartItems });
+      console.log('Dopo l\'aggiornamento dello stato con i dati caricati');
+    }
+  }, [dispatch]);
+
+  useEffect(() => {
+    console.log('Prima del salvataggio dei dati nel localStorage');
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    console.log('Dati salvati nel localStorage:', cartItems);
+  }, [cartItems]);
 
   // Funzione per gestire l'aggiunta di un elemento al carrello
   const handleAddItem = (item) => {
     dispatch(addItem(item)); // Dispatch dell'azione per aggiungere un elemento al carrello
+    console.log('Dopo l\'aggiunta di un elemento al carrello');
   };
 
   // Funzione per gestire la rimozione di un elemento dal carrello
   const handleRemoveItem = (item) => {
     dispatch(removeItem(item)); // Dispatch dell'azione per rimuovere un elemento dal carrello
+    console.log('Dopo la rimozione di un elemento dal carrello');
   };
 
   const handleIncrementQuantity = (item) => {
     dispatch(updateQuantity(item, item.quantity + 1)); // Aggiorna la quantità dell'elemento nel carrello
+    console.log('Dopo l\'incremento della quantità di un elemento');
   };
 
   // Funzione per gestire la riduzione della quantità di un elemento nel carrello
   const handleDecrementQuantity = (item) => {
     if (item.quantity > 1) {
       dispatch(updateQuantity(item, item.quantity - 1)); // Aggiorna la quantità dell'elemento nel carrello
+      console.log('Dopo la riduzione della quantità di un elemento');
     } else {
       console.log("La quantità minima è 1");
     }
   };
 
   const calculateTotalPrice = () => {
-    // Verifica se cartItems è un array prima di usare reduce
     if (!Array.isArray(cartItems)) {
-      console.error('cartItems is not an array'); // Logga un errore per individuare il problema
-      console.log('cartItems:', cartItems); // Aggiungi un log per visualizzare cartItems
-      return 0; // o un valore di default se cartItems non è un array
+      console.error('cartItems is not an array'); 
+      console.log('cartItems:', cartItems); 
+      return 0; 
     }
   
-    // Riduce gli elementi nel carrello per calcolare il prezzo totale
     return cartItems.reduce((total, item) => total + item.total, 0);
   };
   
+  const saveCartToLocalStorage = () => {
+    if (Array.isArray(cartItems)) {
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+      console.log("Salvataggio elementi del carrello in localStorage:", cartItems);
+    } else {
+      console.error("cartItems is not an array:", cartItems);
+    }
+  };
   
+
 
 return (
   <div>

@@ -1,6 +1,6 @@
 .CartModal {
   width: 30%;
-  max-height: 97vh; /* Adjust the height as needed */
+  max-height: 97%; 
   position: fixed;
   right: 0;
   top: 0;
@@ -10,11 +10,7 @@
   overflow-y: auto;
 }
 
-
-  .title {
-    display: flex;
-    justify-content: space-between; 
-  }
-
- 
-  
+.title {
+  display: flex;
+  justify-content: space-between;
+}
