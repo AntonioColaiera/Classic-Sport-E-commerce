@@ -48,17 +48,12 @@ const cartReducer = (state = initialState, action) => {
         cartItems: state.cartItems.filter(item => item.id !== action.payload.id),
       };
       case UPDATE_QUANTITY: {
-        // Verifica che cartItems sia un array
-        if (!Array.isArray(state.cartItems)) {
-          return state;
-        }
-      
         const updatedCartItems = state.cartItems.map((item) => {
           if (item.id === action.payload.id) {
             return {
               ...item,
               quantity: action.payload.quantity,
-              total: action.payload.total,
+              total: item.price * action.payload.quantity,
             };
           }
           return item;
@@ -69,6 +64,7 @@ const cartReducer = (state = initialState, action) => {
           cartItems: updatedCartItems,
         };
       }
+      
       
       case 'LOAD_CART_ITEMS':
   return {

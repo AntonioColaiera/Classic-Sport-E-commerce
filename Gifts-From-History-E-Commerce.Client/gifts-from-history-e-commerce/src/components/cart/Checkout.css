@@ -16,4 +16,8 @@
   .right-section {
     flex: 0.35; /* Sezione destra - 35% */
   }
+
+  .image{
+    flex: 0.35; /* Sezione destra - 35% */
+  }
   

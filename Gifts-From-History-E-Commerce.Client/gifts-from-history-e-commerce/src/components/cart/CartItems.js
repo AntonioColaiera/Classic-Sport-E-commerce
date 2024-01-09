@@ -15,19 +15,26 @@ export default function CartItems() {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.cartItems);
   const checkoutCode = uuidv4();
-
+  
   useEffect(() => {
     const savedCartItems = JSON.parse(localStorage.getItem("cartItems"));
-
-    if (savedCartItems) {
+    const cartUpdated = localStorage.getItem("cartUpdated");
+  
+    if (cartUpdated === "true" && savedCartItems) {
       dispatch({ type: "LOAD_CART_ITEMS", payload: savedCartItems });
+      localStorage.setItem("cartUpdated", "false");
     }
     localStorage.setItem("checkoutCode", checkoutCode);
   }, [dispatch, checkoutCode]);
-
+  
   useEffect(() => {
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    localStorage.setItem("checkoutCode", checkoutCode);
+  
+    // Imposta il flag 'cartUpdated' su 'true' quando cartItems viene modificato
+    localStorage.setItem("cartUpdated", "true");
   }, [cartItems]);
+  
+  
 
   // Funzione per gestire l'aggiunta di un elemento al carrello
   const handleAddItem = (item) => {
@@ -39,19 +46,18 @@ export default function CartItems() {
     dispatch(removeItem(item)); // Dispatch dell'azione per rimuovere un elemento dal carrello
   };
 
-  const handleIncrementQuantity = (item) => {
-    dispatch(updateQuantity(item, item.quantity + 1)); // Aggiorna la quantità dell'elemento nel carrello
-  };
+ // Funzione per gestire l'incremento della quantità di un elemento nel carrello
+const handleIncrementQuantity = (item) => {
+  dispatch(updateQuantity(item, item.quantity + 1)); // Aggiorna la quantità dell'elemento nel carrello
+};
 
-  // Funzione per gestire la riduzione della quantità di un elemento nel carrello
-  const handleDecrementQuantity = (item) => {
-    if (item.quantity > 1) {
-      dispatch(updateQuantity(item, item.quantity - 1)); // Aggiorna la quantità dell'elemento nel carrello
-      console.log("Dopo la riduzione della quantità di un elemento");
-    } else {
-      console.log("La quantità minima è 1");
-    }
-  };
+// Funzione per gestire la riduzione della quantità di un elemento nel carrello
+const handleDecrementQuantity = (item) => {
+  if (item.quantity > 1) {
+    dispatch(updateQuantity(item, item.quantity - 1)); // Aggiorna la quantità dell'elemento nel carrello
+  }
+};
+
 
   const calculateTotalPrice = () => {
     if (!Array.isArray(cartItems)) {
