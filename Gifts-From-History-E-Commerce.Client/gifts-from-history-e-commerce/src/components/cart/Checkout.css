@@ -1,0 +1,19 @@
+/* Checkout.css */
+.checkout-container {
+    display: flex;
+    height: 100vh; /* Altezza dello schermo intero */
+  }
+  
+  .checkout-section {
+    border: 1px solid #ccc;
+    padding: 20px;
+  }
+  
+  .left-section {
+    flex: 0.65; /* Sezione sinistra - 65% */
+  }
+  
+  .right-section {
+    flex: 0.35; /* Sezione destra - 35% */
+  }
+  
