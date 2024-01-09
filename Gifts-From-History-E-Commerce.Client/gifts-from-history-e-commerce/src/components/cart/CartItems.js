@@ -3,11 +3,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { addItem, removeItem, updateQuantity } from "../redux/actions/cartAction";
 import "./CartItems.css";
 import Login from '../authentication/Login.js';
+import { Link } from "react-router-dom";
+import { v4 as uuidv4 } from 'uuid';
 
 export default function CartItems() {
   console.log('Inizio del componente CartItems');
   const dispatch = useDispatch();
-  let cartItems = useSelector((state) => state.cart.cartItems);
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  const checkoutCode = uuidv4();
 
   useEffect(() => {
     console.log('Prima del caricamento dei dati dal localStorage');
@@ -17,7 +20,8 @@ export default function CartItems() {
       dispatch({ type: 'LOAD_CART_ITEMS', payload: savedCartItems });
       console.log('Dopo l\'aggiornamento dello stato con i dati caricati');
     }
-  }, [dispatch]);
+    localStorage.setItem('checkoutCode', checkoutCode);
+  }, [dispatch, checkoutCode]);
 
   useEffect(() => {
     console.log('Prima del salvataggio dei dati nel localStorage');
@@ -52,25 +56,25 @@ export default function CartItems() {
     }
   };
 
-  const calculateTotalPrice = () => {
-    if (!Array.isArray(cartItems)) {
-      console.error('cartItems is not an array'); 
-      console.log('cartItems:', cartItems); 
-      return 0; 
-    }
-  
-    return cartItems.reduce((total, item) => total + item.total, 0);
-  };
-  
-  const saveCartToLocalStorage = () => {
-    if (Array.isArray(cartItems)) {
-      localStorage.setItem("cartItems", JSON.stringify(cartItems));
-      console.log("Salvataggio elementi del carrello in localStorage:", cartItems);
-    } else {
-      console.error("cartItems is not an array:", cartItems);
-    }
-  };
-  
+const calculateTotalPrice = () => {
+  if (!Array.isArray(cartItems)) {
+    console.error('cartItems is not an array'); 
+    console.log('cartItems:', cartItems); 
+    return 0; 
+  }
+
+  return cartItems.reduce((total, item) => total + item.total, 0);
+};
+
+const saveCartToLocalStorage = () => {
+  if (Array.isArray(cartItems)) {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    console.log("Salvataggio elementi del carrello in localStorage:", cartItems);
+  } else {
+    console.error("cartItems is not an array:", cartItems);
+  }
+};
+
 
 
 return (
@@ -86,9 +90,11 @@ return (
         <p>Total Cart Price: ${calculateTotalPrice()}</p>{" "}
         {/* Visualizza il prezzo totale del carrello */}
         {cartItems.length > 0 && (
+            <Link to={`/checkout/${checkoutCode}`}>
             <button className="proceed-button">
               PROCEED WITH YOUR ORDER
             </button>
+          </Link>
           )}
         {cartItems.map((item) => (
           <div key={item.id} className='item'>

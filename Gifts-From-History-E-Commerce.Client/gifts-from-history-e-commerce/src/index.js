@@ -10,6 +10,7 @@ import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Athletics from "./components/items/Athletics";
+import Checkout from "./components/cart/Checkout";
 
 const root = document.getElementById("root");
 
@@ -23,6 +24,7 @@ ReactDOM.render(
           <Route path='/' element={<App />} />
           <Route path='/account/register' element={<RegistrationForm />} />
           <Route path='/sports/athletics' element={<Athletics />} />
+          <Route path='/checkout/:code' element={<Checkout />} />
         </Routes>
         <Footer />
       </Router>
