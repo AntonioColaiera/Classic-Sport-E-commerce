@@ -1,5 +1,7 @@
 import React from 'react';
 import './Checkout.css'; // Importa il file CSS
+import CheckoutItems from './CheckoutItems';
+
 
 export default function Checkout() {
   return (
@@ -10,7 +12,7 @@ export default function Checkout() {
       </div>
       <div className="checkout-section right-section">
         {/* Seconda sezione - 35% */}
-        Right Section
+        <CheckoutItems />
       </div>
     </div>
   );
