@@ -1,6 +1,7 @@
 import React from 'react';
 import './Checkout.css'; // Importa il file CSS
 import CheckoutItems from './CheckoutItems';
+import PaymentDetails from './PaymentDetails';
 
 
 export default function Checkout() {
@@ -8,7 +9,7 @@ export default function Checkout() {
     <div className="checkout-container">
       <div className="checkout-section left-section">
         {/* Prima sezione - 65% */}
-        Left Section
+        <PaymentDetails/>
       </div>
       <div className="checkout-section right-section">
         {/* Seconda sezione - 35% */}

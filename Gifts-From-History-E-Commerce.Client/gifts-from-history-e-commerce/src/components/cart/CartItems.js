@@ -6,16 +6,14 @@ import {
   updateQuantity,
 } from "../redux/actions/cartAction";
 import "./CartItems.css";
-import Login from "../authentication/Login.js";
 import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
-import CheckoutItems from "./CheckoutItems.js";
 
 export default function CartItems() {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.cartItems);
   const checkoutCode = uuidv4();
-  
+
   useEffect(() => {
     const savedCartItems = JSON.parse(localStorage.getItem("cartItems"));
     const cartUpdated = localStorage.getItem("cartUpdated");

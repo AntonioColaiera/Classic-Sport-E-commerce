@@ -1,7 +1,7 @@
 import React from "react";
-import { Login } from "../../authentication/Login.js";
 
-export default function Payment() {
+
+export default function PaymentDetails() {
   return (
     <div>
       <h2>Quick checkout</h2>
