@@ -1,3 +1,4 @@
+// RegistrationForm.js
 import React, { useState } from "react";
 import "./RegistrationForm.css";
 
@@ -8,6 +9,10 @@ const RegistrationForm = () => {
     lastName: "",
     email: "",
     password: "",
+    country: "", // Aggiungi il campo Country
+    city: "", // Aggiungi il campo City
+    address: "", // Aggiungi il campo Address
+    phone: "", // Aggiungi il campo Phone
   });
 
   // Function to handle changes in form fields
@@ -62,31 +67,61 @@ const RegistrationForm = () => {
           onChange={handleChange}
           required
         />
-        <div />
-        <div>
-          <input
-            className='input'
-            type='email'
-            name='email'
-            placeholder='Email'
-            onChange={handleChange}
-            required
-          />
-          <input
-            className='input'
-            type='password'
-            name='password'
-            placeholder='Password'
-            onChange={handleChange}
-            required
-          />
-        </div>
+        <input
+          className='input'
+          type='email'
+          name='email'
+          placeholder='Email'
+          onChange={handleChange}
+          required
+        />
+        <input
+          className='input'
+          type='password'
+          name='password'
+          placeholder='Password'
+          onChange={handleChange}
+          required
+        />
+        <input
+          className='input'
+          type='text'
+          name='country'
+          placeholder='Country'
+          onChange={handleChange}
+          required
+        />
+        <input
+          className='input'
+          type='text'
+          name='city'
+          placeholder='City'
+          onChange={handleChange}
+          required
+        />
+        <input
+          className='input'
+          type='text'
+          name='address'
+          placeholder='Address'
+          onChange={handleChange}
+          required
+        />
+        <input
+          className='input'
+          type='numeric'
+          name='phone'
+          placeholder='Phone'
+          onChange={handleChange}
+          required
+        />
         <button type='submit' className='createButton'>
           Create
         </button>{" "}
         {/* Button to submit the form */}
       </div>
     </form>
+   
   );
 };
 

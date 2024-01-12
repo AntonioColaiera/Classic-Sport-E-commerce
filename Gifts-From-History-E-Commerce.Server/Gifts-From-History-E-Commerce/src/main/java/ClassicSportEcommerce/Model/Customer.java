@@ -29,5 +29,15 @@ public class Customer {
     @Column(name = "Password", nullable = false, length = 255)
     private String password;
 
-    
+    @Column(name = "Country", length = 255)
+    private String country;
+
+    @Column(name = "City", length = 255)
+    private String city;
+
+    @Column(name = "Address", length = 255)
+    private String address;
+
+    @Column(name = "Phone", length = 20)
+    private String phone;
 }
