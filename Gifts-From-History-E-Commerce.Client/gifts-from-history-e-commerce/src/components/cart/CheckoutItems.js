@@ -2,26 +2,22 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import './CheckoutItems.css';
 
+export const calculateTotalPrice = (cartItems) => {
+  if (!Array.isArray(cartItems)) {
+    return 0;
+  }
+
+  return cartItems.reduce((total, item) => total + item.total, 0);
+};
+
 export default function CheckoutItems() {
   // Leggi lo stato cartItems dallo store Redux
   const cartItems = useSelector((state) => state.cart.cartItems);
 
-
-  const calculateTotalPrice = () => {
-    if (!Array.isArray(cartItems)) {
-      return 0;
-    }
-
-    return cartItems.reduce((total, item) => total + item.total, 0);
-  };
-
   return (
     <div className="Checkoutitems">
       {/* Mostra gli elementi del carrello in CheckoutItems */}
-
-
-      <p>Total Cart Price: ${calculateTotalPrice()}</p>{" "}
-
+      <p>Total Cart Price: ${calculateTotalPrice(cartItems)}</p>{" "}
       {cartItems.map((item) => (
         <div key={item.id} className='item'>
           <img
@@ -39,3 +35,4 @@ export default function CheckoutItems() {
     </div>
   );
 }
+

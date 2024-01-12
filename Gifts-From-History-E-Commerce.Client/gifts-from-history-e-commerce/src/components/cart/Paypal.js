@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
+import { useSelector } from 'react-redux';
+import { calculateTotalPrice } from './CheckoutItems';
 
 const Paypal = () => {
     const [{ options, isPending }, dispatch] = usePayPalScriptReducer();
     const [currency, setCurrency] = useState(options.currency);
+    const cartItems = useSelector((state) => state.cart.cartItems);
 
     const onCurrencyChange = ({ target: { value } }) => {
         setCurrency(value);
@@ -21,7 +24,7 @@ const Paypal = () => {
             purchase_units: [
                 {
                     amount: {
-                        value: "8.99",
+                        value: calculateTotalPrice(cartItems).toString(),
                     },
                 },
             ],
@@ -40,8 +43,8 @@ const Paypal = () => {
             {isPending ? <p>LOADING...</p> : (
                 <>
                     <select value={currency} onChange={onCurrencyChange}>
+                    <option value="EUR">💶 Euro</option>
                             <option value="USD">💵 USD</option>
-                            <option value="EUR">💶 Euro</option>
                     </select>
                     <PayPalButtons 
                         style={{ layout: "vertical" }}
@@ -54,4 +57,4 @@ const Paypal = () => {
     );
 }
 
-export default Paypal ;
+export default Paypal;

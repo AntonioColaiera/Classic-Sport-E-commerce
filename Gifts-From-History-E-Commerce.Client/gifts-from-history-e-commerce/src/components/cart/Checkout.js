@@ -7,7 +7,7 @@ import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 const initialOptions = {
   "clientId": "AcTIOxaOFuPeD5K0Nk7eIel4vAwGt0IqcYbfhF7b1H1RitcxuOgdZ94dDSSvZI52W0eQMV9cYUudNUjf", 
-  "currency": "Euro" 
+  "currency": "EUR" 
   
 };
 
