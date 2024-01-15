@@ -27,6 +27,7 @@
   border: 8px solid black;
   border-radius: 4px;
   padding: 20px;
+  z-index: 1000
 }
 
 .formLogin{

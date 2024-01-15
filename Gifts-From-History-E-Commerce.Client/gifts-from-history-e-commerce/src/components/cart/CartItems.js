@@ -15,29 +15,26 @@ export default function CartItems() {
   const checkoutCode = uuidv4();
 
   useEffect(() => {
+    // Carica gli elementi del carrello da localStorage
     const savedCartItems = JSON.parse(localStorage.getItem("cartItems"));
-    const cartUpdated = localStorage.getItem("cartUpdated");
-  
-    if (cartUpdated === "true" && savedCartItems) {
+    if (savedCartItems) {
       dispatch({ type: "LOAD_CART_ITEMS", payload: savedCartItems });
       localStorage.setItem("cartUpdated", "false");
     }
+  
+    // Imposta il codice di checkout in localStorage
     localStorage.setItem("checkoutCode", checkoutCode);
-  }, [dispatch, checkoutCode]);
+  }, []);
   
   useEffect(() => {
+    // Aggiorna il codice di checkout in localStorage quando cambia
     localStorage.setItem("checkoutCode", checkoutCode);
   
-    // Imposta il flag 'cartUpdated' su 'true' quando cartItems viene modificato
+    // Imposta la flag 'cartUpdated' su 'true' quando cartItems cambia
     localStorage.setItem("cartUpdated", "true");
   }, [cartItems]);
   
-  
 
-  // Funzione per gestire l'aggiunta di un elemento al carrello
-  const handleAddItem = (item) => {
-    dispatch(addItem(item)); // Dispatch dell'azione per aggiungere un elemento al carrello
-  };
 
   // Funzione per gestire la rimozione di un elemento dal carrello
   const handleRemoveItem = (item) => {
@@ -65,17 +62,6 @@ const handleDecrementQuantity = (item) => {
     return cartItems.reduce((total, item) => total + item.total, 0);
   };
 
-  const saveCartToLocalStorage = () => {
-    if (Array.isArray(cartItems)) {
-      localStorage.setItem("cartItems", JSON.stringify(cartItems));
-      console.log(
-        "Salvataggio elementi del carrello in localStorage:",
-        cartItems
-      );
-    } else {
-      console.error("cartItems is not an array:", cartItems);
-    }
-  };
 
   return (
     <div>
@@ -127,7 +113,6 @@ const handleDecrementQuantity = (item) => {
               {/* Pulsante per rimuovere l'elemento dal carrello */}
             </div>
           ))}
-          {/* <CheckoutItems cartItems={cartItems} /> */}
         </div>
       )}
     </div>

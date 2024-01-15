@@ -8,11 +8,9 @@ import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 const initialOptions = {
   "clientId": "AcTIOxaOFuPeD5K0Nk7eIel4vAwGt0IqcYbfhF7b1H1RitcxuOgdZ94dDSSvZI52W0eQMV9cYUudNUjf", 
   "currency": "EUR" 
-  
 };
 
-
-export default function Checkout() {
+export default function Checkout({ userDetails }) { // Aggiungi userDetails come prop
   return (
     <div className="checkout-container">
       <div className="checkout-section left-section">
@@ -20,8 +18,7 @@ export default function Checkout() {
         <PayPalScriptProvider options={initialOptions}>
           <Paypal/>
         </PayPalScriptProvider>
-        <PaymentDetails/>
-        
+        <PaymentDetails userDetails={userDetails} /> {/* Passa userDetails a PaymentDetails */}
       </div>
       <div className="checkout-section right-section">
         {/* Seconda sezione - 35% */}
