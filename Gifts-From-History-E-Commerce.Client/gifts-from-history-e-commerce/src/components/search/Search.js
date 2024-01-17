@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { IoMdSearch } from 'react-icons/io';
-import './Search.css'; // 
+import Fuse from 'fuse.js'; // Importa Fuse.js
+import './Search.css';
 
 export default function Search() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchData, setSearchData] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
   const searchRef = useRef(null);
 
   const handleSearchIconClick = () => {
@@ -11,8 +14,16 @@ export default function Search() {
   };
 
   const handleSearch = (e) => {
-    // Implementa la logica di ricerca qui, utilizzando il valore di 'e.target.value'
-    console.log('Ricerca:', e.target.value);
+    const searchTerm = e.target.value;
+
+    // Utilizza Fuse.js per ottenere i risultati della ricerca
+    const fuse = new Fuse(searchData, {
+      keys: ['title', 'content'],
+      threshold: 0.3,
+    });
+    const results = fuse.search(searchTerm);
+
+    setSearchResults(results);
   };
 
   const handleClickOutside = (e) => {
@@ -20,6 +31,21 @@ export default function Search() {
       setIsSearchOpen(false);
     }
   };
+
+  useEffect(() => {
+    // Simula il caricamento di dati da una fonte esterna
+    const fetchData = async () => {
+      // Esempio di dati con 'title' e 'content'
+      const data = [
+        { title: 'Sports Athletics', content: 'Information about sports and athletics' },
+        // Aggiungi altri dati se necessario
+      ];
+
+      setSearchData(data);
+    };
+
+    fetchData();
+  }, []);
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
@@ -43,11 +69,14 @@ export default function Search() {
               placeholder="Search..."
               onChange={handleSearch}
             />
+            <ul>
+              {searchResults.map((result) => (
+                <li key={result.item.title}>{result.item.title}</li>
+              ))}
+            </ul>
           </div>
         </div>
       )}
     </div>
   );
 }
-
-
