@@ -25,7 +25,7 @@ export default function Carousel() {
         <div className="carousel-content">
           <h2>{CarouselItems[activeIndex].title}</h2>
           <p>{CarouselItems[activeIndex].description}</p>
-          <bottom>Prova</bottom>
+          <button>Prova</button>
         </div>
         <button className="carousel-button next" onClick={goNext}><FaChevronRight /></button>
         <div className="carousel-indicator">
