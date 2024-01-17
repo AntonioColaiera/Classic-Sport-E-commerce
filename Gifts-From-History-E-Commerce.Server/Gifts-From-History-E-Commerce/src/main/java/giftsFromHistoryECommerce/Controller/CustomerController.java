@@ -1,4 +1,4 @@
-package ClassicSportEcommerce.Controller;
+package giftsFromHistoryECommerce.Controller;
 
 
 import java.util.List;
@@ -8,8 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import ClassicSportEcommerce.Model.Customer;
-import ClassicSportEcommerce.Service.CustomerService;
+import giftsFromHistoryECommerce.Model.Customer;
+import giftsFromHistoryECommerce.Service.CustomerService;
 
 @RestController
 @RequestMapping("/customers")

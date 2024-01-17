@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.E-Commerce</groupId>
-	<artifactId>Classic-Sport-E-commerce</artifactId>
+	<artifactId>Gifts-From-History-E-Commerce</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Classic-Sport-E-commerce</name>
+	<name>Gifts-From-History-E-Commerce</name>
 	<description>project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>

@@ -1,9 +1,11 @@
-package ClassicSportEcommerce.Service;
+package giftsFromHistoryECommerce.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ClassicSportEcommerce.Model.Manager;
-import ClassicSportEcommerce.Repository.ManagerRepository;
+
+import giftsFromHistoryECommerce.Model.Manager;
+import giftsFromHistoryECommerce.Repository.ManagerRepository;
+
 import java.util.List;
 
 @Service

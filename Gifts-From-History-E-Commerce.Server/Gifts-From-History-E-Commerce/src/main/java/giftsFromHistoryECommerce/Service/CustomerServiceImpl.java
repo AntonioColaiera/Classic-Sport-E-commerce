@@ -1,12 +1,12 @@
-package ClassicSportEcommerce.Service;
+package giftsFromHistoryECommerce.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import ClassicSportEcommerce.Model.Customer;
-import ClassicSportEcommerce.Repository.CustomerRepository;
+import giftsFromHistoryECommerce.Model.Customer;
+import giftsFromHistoryECommerce.Repository.CustomerRepository;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {

@@ -1,7 +1,8 @@
-package ClassicSportEcommerce.Service;
+package giftsFromHistoryECommerce.Service;
 
-import ClassicSportEcommerce.Model.Item;
 import java.util.List;
+
+import giftsFromHistoryECommerce.Model.Item;
 
 public interface ItemService {
 

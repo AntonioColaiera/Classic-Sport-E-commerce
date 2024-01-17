@@ -1,10 +1,10 @@
-package ClassicSportEcommerce.Controller;
+package giftsFromHistoryECommerce.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import ClassicSportEcommerce.Model.Item;
-import ClassicSportEcommerce.Service.ItemService;
+import giftsFromHistoryECommerce.Model.Item;
+import giftsFromHistoryECommerce.Service.ItemService;
 
 import java.util.List;
 

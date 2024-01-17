@@ -1,9 +1,10 @@
-package ClassicSportEcommerce.Repository;
+package giftsFromHistoryECommerce.Repository;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import ClassicSportEcommerce.Model.Item;
+
+import giftsFromHistoryECommerce.Model.Item;
 
 public interface ItemRepository extends JpaRepository<Item, Long> {
 	 List<Item> findByTypology(String typology);

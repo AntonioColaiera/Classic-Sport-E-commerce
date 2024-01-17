@@ -1,4 +1,4 @@
-package ClassicSportEcommerce.Model;
+package giftsFromHistoryECommerce.Model;
 
 import jakarta.persistence.*;
 import lombok.*;
