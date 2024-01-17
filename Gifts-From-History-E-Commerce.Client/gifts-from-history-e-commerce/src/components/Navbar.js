@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
-import logo from "../assets/ClassicSportGift.png";
+import logo from "../assets/GiftsFromHistory.png";
 import UserIcon from "./authentication/Authentication";
 import Cart from "./cart/Cart";
 import Search from "./search/Search";
@@ -10,23 +10,39 @@ const Navbar = () => {
   // Define categories and their subcategories
   const categories = [
     {
-      name: "Sports",
+      name: "Periods",
       subcategories: [
         {
           name: "Athletics",
-          path: "/sports/athletics"
+          path: "/sports/athletics",
         },
         {
-          name: "Sottocategoria 2",
+          name: "Athletics",
+          path: "/sports/athletics",
+        },
+        {
+          name: "Athletics",
+          path: "/sports/athletics",
+        },
+        {
+          name: "Athletics",
+          path: "/sports/athletics",
+        },
+        {
+          name: "Modern",
+          path: "/sports/modern",
+        },{
+          name: "Athletics",
+          path: "/sports/athletics",
         },
       ],
     },
     {
-      name: "Historic Athlets",
+      name: "Historic Characters",
       subcategories: [],
     },
     {
-      name: "World Events",
+      name: "Events",
       subcategories: [
         {
           name: "Sottocategoria 1",
@@ -42,10 +58,10 @@ const Navbar = () => {
   return (
     // Navbar structure using unordered lists
     <nav className='NAvbar'>
-      <Link to="/">
-      <div className='logo-container'>
-        <img src={logo} alt='Logo' className='logo-img' />
-      </div>
+      <Link to='/'>
+        <div className='logo-container'>
+          <img src={logo} alt='Logo' className='logo-img' />
+        </div>
       </Link>
       <div className='search-icon'>
         <Search />
