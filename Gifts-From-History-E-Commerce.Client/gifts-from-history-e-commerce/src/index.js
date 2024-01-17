@@ -1,8 +1,8 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Provider } from "react-redux";
-import store from "./components/redux/stores/cartStore";
+import store from "./components/redux/stores/Store";
 import "./index.css";
 import App from "./App";
 import RegistrationForm from "./components/authentication/RegistrationForm";
@@ -14,7 +14,9 @@ import Checkout from "./components/payment/Checkout";
 
 const root = document.getElementById("root");
 
-ReactDOM.render(
+const rootContainer = ReactDOM.createRoot(root);
+
+rootContainer.render(
   <React.StrictMode>
     <Provider store={store}>
       <Router>
@@ -29,6 +31,5 @@ ReactDOM.render(
         <Footer />
       </Router>
     </Provider>
-  </React.StrictMode>,
-  root
+  </React.StrictMode>
 );
