@@ -45,7 +45,7 @@
 .logo-img {
   width: 200px; /* 2/3 di 300px */
   height: 200px; /* 2/3 di 300px */
-  border-radius: 30%;
+  border-radius: 90%;
   background-color: lightgreen;
   margin: 10px
 }
