@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { IoMdSearch } from 'react-icons/io';
-import './Search.css'; // Aggiungi uno stile CSS per posizionare il campo di ricerca
+import './Search.css'; // 
 
 export default function Search() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -40,7 +40,7 @@ export default function Search() {
           <div className="search-input-container">
             <input
               type="text"
-              placeholder="Cerca..."
+              placeholder="Search..."
               onChange={handleSearch}
             />
           </div>
