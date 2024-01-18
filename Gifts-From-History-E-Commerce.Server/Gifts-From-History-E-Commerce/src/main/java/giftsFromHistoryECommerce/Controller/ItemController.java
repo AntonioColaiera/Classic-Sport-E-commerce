@@ -38,6 +38,12 @@ public class ItemController {
     public List<Item> getAllItems() {
         return itemService.getAllItems();
     }
+    
+    @DeleteMapping("/{id}")
+    public String deleteItem(@PathVariable Long id) {
+        itemService.deleteItem(id);
+        return "Item with ID " + id + " deleted successfully";
+    }
 
     // Other specific item-related endpoints
     // ...

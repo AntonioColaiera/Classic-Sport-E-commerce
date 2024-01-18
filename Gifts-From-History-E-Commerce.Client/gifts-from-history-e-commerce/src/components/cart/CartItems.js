@@ -21,38 +21,35 @@ export default function CartItems() {
       dispatch({ type: "LOAD_CART_ITEMS", payload: savedCartItems });
       localStorage.setItem("cartUpdated", "false");
     }
-  
+
     // Imposta il codice di checkout in localStorage
     localStorage.setItem("checkoutCode", checkoutCode);
   }, []);
-  
+
   useEffect(() => {
     // Aggiorna il codice di checkout in localStorage quando cambia
     localStorage.setItem("checkoutCode", checkoutCode);
-  
+
     // Imposta la flag 'cartUpdated' su 'true' quando cartItems cambia
     localStorage.setItem("cartUpdated", "true");
   }, [cartItems]);
-  
-
 
   // Funzione per gestire la rimozione di un elemento dal carrello
   const handleRemoveItem = (item) => {
     dispatch(removeItem(item)); // Dispatch dell'azione per rimuovere un elemento dal carrello
   };
 
- // Funzione per gestire l'incremento della quantità di un elemento nel carrello
-const handleIncrementQuantity = (item) => {
-  dispatch(updateQuantity(item, item.quantity + 1)); // Aggiorna la quantità dell'elemento nel carrello
-};
+  // Funzione per gestire l'incremento della quantità di un elemento nel carrello
+  const handleIncrementQuantity = (item) => {
+    dispatch(updateQuantity(item, item.quantity + 1)); // Aggiorna la quantità dell'elemento nel carrello
+  };
 
-// Funzione per gestire la riduzione della quantità di un elemento nel carrello
-const handleDecrementQuantity = (item) => {
-  if (item.quantity > 1) {
-    dispatch(updateQuantity(item, item.quantity - 1)); // Aggiorna la quantità dell'elemento nel carrello
-  }
-};
-
+  // Funzione per gestire la riduzione della quantità di un elemento nel carrello
+  const handleDecrementQuantity = (item) => {
+    if (item.quantity > 1) {
+      dispatch(updateQuantity(item, item.quantity - 1)); // Aggiorna la quantità dell'elemento nel carrello
+    }
+  };
 
   const calculateTotalPrice = () => {
     if (!Array.isArray(cartItems)) {
@@ -61,7 +58,6 @@ const handleDecrementQuantity = (item) => {
 
     return cartItems.reduce((total, item) => total + item.total, 0);
   };
-
 
   return (
     <div>
@@ -108,7 +104,7 @@ const handleDecrementQuantity = (item) => {
               <p>Total Price: ${item.total}</p>{" "}
               {/* Prezzo totale per l'elemento (quantità * prezzo unitario) */}
               <button onClick={() => handleRemoveItem(item)}>
-                Rimuovi dal carrello
+                Remove
               </button>{" "}
               {/* Pulsante per rimuovere l'elemento dal carrello */}
             </div>

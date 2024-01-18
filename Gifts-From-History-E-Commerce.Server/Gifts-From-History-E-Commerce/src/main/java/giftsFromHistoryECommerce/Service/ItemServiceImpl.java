@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import giftsFromHistoryECommerce.Model.Item;
 import giftsFromHistoryECommerce.Repository.ItemRepository;
+import jakarta.persistence.EntityNotFoundException;
 
 import java.util.List;
 
@@ -36,4 +37,10 @@ public class ItemServiceImpl implements ItemService {
     public List<Item> findByTypology(String typology) {
         return itemRepository.findByTypology(typology);
     }
+
+    @Override
+    public void deleteItem(Long id) {
+        itemRepository.deleteById(id);
+    }
 }
+

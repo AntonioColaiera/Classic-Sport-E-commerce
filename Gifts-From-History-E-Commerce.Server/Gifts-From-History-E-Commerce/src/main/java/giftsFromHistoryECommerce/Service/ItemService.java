@@ -13,4 +13,6 @@ public interface ItemService {
     List<Item> getAllItems();
     
     List<Item> findByTypology(String typology);
+
+    void deleteItem(Long id);
 }
