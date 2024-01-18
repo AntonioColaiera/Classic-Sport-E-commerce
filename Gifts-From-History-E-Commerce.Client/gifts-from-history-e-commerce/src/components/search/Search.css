@@ -2,6 +2,7 @@
 
 .search-container {
     position: top;
+  
   }
   
   .search-overlay {
@@ -11,6 +12,7 @@
     width: 25%;
     height: 70%;
     background: rgba(255, 255, 255, 0.9); /* Imposta uno sfondo semitrasparente */
+    border-radius: 3%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,6 +22,8 @@
   .search-input-container {
     width: 50%;
     height: 90%;
+    color: aliceblue;
+ 
   }
   
   /* Aggiungi stili aggiuntivi a tuo piacimento */
