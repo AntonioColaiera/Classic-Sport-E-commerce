@@ -13,51 +13,71 @@ const Navbar = () => {
       name: "Periods",
       subcategories: [
         {
-          name: "Athletics",
-          path: "/sports/athletics",
+          name: "Prehistory",
+          path: "/periods/prehistory",
         },
         {
-          name: "Athletics",
-          path: "/sports/athletics",
+          name: "Ancient",
+          path: "/periods/ancient",
         },
         {
-          name: "Athletics",
-          path: "/sports/athletics",
-        },
-        {
-          name: "Athletics",
-          path: "/sports/athletics",
+          name: "Medieval",
+          path: "/periods/medieval",
         },
         {
           name: "Modern",
-          path: "/sports/modern",
-        },{
-          name: "Athletics",
-          path: "/sports/athletics",
+          path: "/periods/modern",
+        },
+        {
+          name: "Contemporary",
+          path: "/periods/contemporary",
         },
       ],
     },
     {
       name: "Historic Characters",
-      subcategories: [],
-    },
-    {
-      name: "Events",
       subcategories: [
         {
-          name: "Sottocategoria 1",
+          name: "David Livingston",
+          path: "/historic_characters/David_Livingston",
+        },
+        {
+          name: "Socrates",
+          path: "/historic_characters/Socrates",
+        },
+        {
+          name: "Martin Luther",
+          path: "/historic_characters/Martin_Luther",
+        },
+        {
+          name: "Dinosaurs",
+          path: "/historic_characters/dinosaurs",
+        },
+      ],
+    },
+    {
+      name: "Events and objects",
+      subcategories: [
+        {
+          name: "Steam engine",
+          path: "/events_and_objects/steam_engine",
         },
       ],
     },
     {
       name: "Products typology",
-      subcategories: [],
+      subcategories: [
+        {
+          name: "Sculpture",
+          path: "/products_tipology/sculpture",
+        },
+      ],
     },
   ];
 
   return (
     // Navbar structure using unordered lists
-    <nav className='NAvbar'>
+    <nav>
       <Link to='/'>
         <div className='logo-container'>
           <img src={logo} alt='Logo' className='logo-img' />

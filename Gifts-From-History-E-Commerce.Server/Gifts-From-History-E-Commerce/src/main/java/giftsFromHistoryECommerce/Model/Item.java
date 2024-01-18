@@ -1,5 +1,7 @@
 package giftsFromHistoryECommerce.Model;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,7 +19,8 @@ public class Item {
     private Long id;
 
     @Column(name = "Tipology", length = 100)
-    private String typology;
+    @ElementCollection
+    private List<String> typology;
     
     @Column(name = "Image", nullable = false, length = 500)
     private String image;

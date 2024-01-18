@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 import Card from "../Card";
 
-export default function Athletics() {
-
+export default function Ancient() {
   const [data, setData] = useState(null);
-  const typology = "Athletes";  
+  const typology = "Ancient";
 
   useEffect(() => {
     fetch(`http://localhost:8080/items/byTypology/${typology}`)
@@ -15,13 +14,11 @@ export default function Athletics() {
 
   return (
     <div style={{ display: "flex", flexWrap: "wrap" }}>
-      {data ? (
-        data.map((item) => (
-          <Card key={item.id} item={item} style={{ margin: "8px" }} />
-        ))
-      ) : (
-        "Loading..."
-      )}
+      {data
+        ? data.map((item) => (
+            <Card key={item.id} item={item} style={{ margin: "8px" }} />
+          ))
+        : "Loading..."}
     </div>
   );
 }

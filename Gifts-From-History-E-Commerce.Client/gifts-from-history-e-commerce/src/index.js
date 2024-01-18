@@ -9,8 +9,8 @@ import RegistrationForm from "./components/authentication/RegistrationForm";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import Athletics from "./components/items/Athletics";
 import Checkout from "./components/payment/Checkout";
+import Ancient from "./components/items/Ancient";
 
 const root = document.getElementById("root");
 
@@ -25,7 +25,7 @@ rootContainer.render(
         <Routes>
           <Route path='/' element={<App />} />
           <Route path='/account/register' element={<RegistrationForm />} />
-          <Route path='/sports/athletics' element={<Athletics />} />
+          <Route path='/periods/ancient' element={<Ancient />} />
           <Route path='/checkout/:code' element={<Checkout />} />
         </Routes>
         <Footer />

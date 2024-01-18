@@ -17,7 +17,7 @@ const Cards = ({ item }) => {
   const handleAddToCart = () => {
     // Create a copy of the item object and add the quantity property
     const itemWithQuantity = { ...item, quantity };
-    
+
     // Send the itemWithQuantity object to your addItem action
     dispatch(addItem(itemWithQuantity));
   };
@@ -29,7 +29,6 @@ const Cards = ({ item }) => {
     <MuiCard sx={{ width: 320, margin: 2 }}>
       <div>
         <Typography variant='h6'>{item.title}</Typography>
-        <Typography variant='body1'>{item.typology}</Typography>
         <IconButton
           aria-label='bookmark Bahamas Islands'
           variant='plain'
@@ -41,7 +40,7 @@ const Cards = ({ item }) => {
         </IconButton>
         <div style={{ paddingTop: "56.25%", position: "relative" }}>
           <img
-            src={require(`../assets/items/${item.image}`)}
+            src={`../assets/items/${item.image}`}
             loading='lazy'
             alt={item.title}
             style={{
@@ -53,6 +52,7 @@ const Cards = ({ item }) => {
             }}
           />
         </div>
+        <Typography variant='body1'>{item.information}</Typography>
         <CardContent
           sx={{
             display: "flex",
@@ -75,7 +75,9 @@ const Cards = ({ item }) => {
             Add To Cart
           </Button>
         </CardContent>
-        <div style={{ display: "flex", justifyContent: "center" , margin: "20px"}}>
+        <div
+          style={{ display: "flex", justifyContent: "center", margin: "20px" }}
+        >
           <Button
             variant='contained'
             size='small'
