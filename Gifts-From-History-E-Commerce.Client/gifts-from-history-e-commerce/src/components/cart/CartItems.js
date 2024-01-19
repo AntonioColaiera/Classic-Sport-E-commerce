@@ -86,9 +86,9 @@ export default function CartItems() {
                 src={`/assets/items/${item.image}`}
                 loading='lazy'
                 alt={item.title}
+                className="image"
               />
-              <h2>{item.title}</h2> {/* Titolo dell'elemento */}
-              <p>Typology: {item.typology}</p> {/* Tipologia dell'elemento */}
+              <h2>{item.title}</h2>
               <p>Unit Price: ${item.price}</p>{" "}
               {/* Prezzo unitario dell'elemento */}
               <p>Quantity: {item.quantity}</p>{" "}

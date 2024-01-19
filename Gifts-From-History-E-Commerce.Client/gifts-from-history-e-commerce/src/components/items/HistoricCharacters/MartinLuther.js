@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-import Card from "../Card";
+import Card from "../../Card";
 
-export default function Ancient() {
+export default function MartinLuther() {
   const [data, setData] = useState(null);
-  const typology = "Ancient";
+  const typology = "Martin Luther";
 
   useEffect(() => {
     fetch(`http://localhost:8080/items/byTypology/${typology}`)

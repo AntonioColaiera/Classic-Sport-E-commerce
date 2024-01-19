@@ -56,20 +56,32 @@ const Navbar = () => {
       ],
     },
     {
-      name: "Events and objects",
+      name: "Events And Objects",
       subcategories: [
         {
-          name: "Steam engine",
+          name: "Steam Engine",
           path: "/events_and_objects/steam_engine",
         },
       ],
     },
     {
-      name: "Products typology",
+      name: "Product typology",
       subcategories: [
         {
           name: "Sculpture",
-          path: "/products_tipology/sculpture",
+          path: "/product_tipology/sculpture",
+        },
+        {
+          name: "T-shirt",
+          path: "/product_tipology/t-shirt",
+        },
+        {
+          name: "Poster",
+          path: "/product_tipology/poster",
+        },
+        {
+          name: "Hat",
+          path: "/product_tipology/hat",
         },
       ],
     },
