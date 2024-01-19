@@ -5,7 +5,14 @@ const Footer = () => {
   return (
     <footer className='footer'>
       
-      <p>Footer</p>
+      <div className="links-left2">
+        <a href="#">Terms </a>
+        <a href="#">Refund information</a>
+      </div>
+      <div className="links-right2">
+        <a href="#">FAQ</a>
+        <a href="#">Contacts</a>
+      </div>
       {/* Altri elementi del footer */}
     </footer>
   );
