@@ -24,6 +24,7 @@ import Hat from "./components/items/ProductTipology/Hat";
 import Poster from "./components/items/ProductTipology/Poster";
 import Sculpture from "./components/items/ProductTipology/Sculpture";
 import T_shirt from "./components/items/ProductTipology/T_shirt";
+import InfoBar from "./components/InfoBar";
 
 const root = document.getElementById("root");
 
@@ -33,6 +34,7 @@ rootContainer.render(
   <React.StrictMode>
     <Provider store={store}>
       <Router>
+        <InfoBar/>
         <Header />
         <Navbar />
         <Routes>

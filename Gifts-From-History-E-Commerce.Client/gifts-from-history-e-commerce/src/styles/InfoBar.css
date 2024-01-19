@@ -1,0 +1,17 @@
+/* InfoBar.css */
+
+.info-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px; 
+    background: linear-gradient(to right, #3498db, #777474, #87CEEB);
+  }
+  
+  .info-text {
+    color: white; 
+    font-size: 1em; 
+    font-weight: bold;
+   
+  }
+  

@@ -39,7 +39,7 @@ export default function Search() {
       // Esempio di dati con 'title' e 'content'
       const data = [
         { title: 'Sports Athletics', content: 'Information about sports and athletics', link: '/sports/athletics'  },
-        // Aggiungi altri dati se necessario
+        
       ];
 
       setSearchData(data);
