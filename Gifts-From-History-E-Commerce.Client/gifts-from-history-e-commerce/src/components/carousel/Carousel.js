@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { CarouselItems } from "./CarouselItems";
 import { FaChevronLeft, FaChevronRight, FaCircle, FaRegCircle } from 'react-icons/fa'; // Importa le icone da react-icons
-import "../../styles/Carousel.css";
+import "./Carousel.css";
+import { Link } from "react-router-dom";
 
 export default function Carousel() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -23,9 +24,12 @@ export default function Carousel() {
       <div className="carousel-item" style={{backgroundImage: `url(${CarouselItems[activeIndex].image})`}}>
         <button className="carousel-button prev" onClick={goPrev}><FaChevronLeft /></button>
         <div className="carousel-content">
-          <h2>{CarouselItems[activeIndex].title}</h2>
-          <p>{CarouselItems[activeIndex].description}</p>
-          <button>Prova</button>
+          <h2 className="name">{CarouselItems[activeIndex].title}</h2>
+          <p className="description">{CarouselItems[activeIndex].description}</p>
+          <button>
+  <Link to={`/${CarouselItems[activeIndex].link}`} className="linkItem">SEE IT BETTER!</Link>
+</button>
+
         </div>
         <button className="carousel-button next" onClick={goNext}><FaChevronRight /></button>
         <div className="carousel-indicator">

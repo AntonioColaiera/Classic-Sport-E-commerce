@@ -1,33 +1,26 @@
-import Prova1 from "../../assets/carousel/Prova1.jpg";
-import Prova2 from "../../assets/carousel/prova2.jpg";
-import SocratesSculpture from '../../assets/items/Socratessculpture.jpg';
-import DavidLivingstonposter from '../../assets/items/DavidLivingstonposter.png';
-import MartinLutherT_shirt from '../../assets/items/MartinLutherT-shirt.png';
-
-
-
-
-
+import SocratesSculpture from "../../assets/items/Socratessculpture.jpg";
+import DavidLivingstonposter from "../../assets/items/DavidLivingstonposter.png";
+import MartinLutherT_shirt from "../../assets/items/MartinLutherT-shirt.png";
 
 
 export const CarouselItems = [
-
   {
-    title: "pROVA2",
-    description: "pROVAAAAA2",
+    title: "SOCRATES",
+    description: "Marble ring-shaped sculpture of the ancient Greek philosopher Socrates",
     image: SocratesSculpture,
-    link: "1",
+    link: "./historic_characters/Socrates",
+    
   },
   {
-    title: "pROVA",
-    description: "pROVAAAAA",
+    title: "DAVID LIVINGSTON",
+    description: "Hand drawn poster of Scottish explorer David Livingston",
     image: DavidLivingstonposter,
-    link: "0.1",
+    link: "historic_characters/David_Livingston",
   },
   {
-    title: "pROVA2",
-    description: "pROVAAAAA2",
+    title: "MARTIN LUTHER",
+    description: "Re-presentation on a t-shirt of the theologian Martin Luther",
     image: MartinLutherT_shirt,
-    link: "1",
+    link: ".historic_characters/Martin_Luther",
   },
 ];

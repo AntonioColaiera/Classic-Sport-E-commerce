@@ -7,6 +7,8 @@
   background-position: center;
   position: relative; /* Aggiunto per posizionare l'indicatore all'interno dell'elemento del carosello */
   height: 400px; 
+ 
+ 
 }
 
 .carousel-button {
@@ -25,6 +27,11 @@
   color: white;
   text-align: center;
   padding: 20px;
+  background-color: aliceblue;
+  border-radius: 15%;
+  background-color: rgba(219, 206, 206, 0.5); 
+  width: 100%;
+
 }
 
 .carousel-indicator {
@@ -36,6 +43,30 @@
   display: flex;
   justify-content: center;
   padding: 10px;
-  color: white;
+  color: black;
   cursor: pointer;
+}
+
+  
+
+
+.description{
+  color:  black;
+  font-size: 1.15em;
+  font-weight: bold;
+
+}
+  
+
+
+.name{
+  color: black;
+  font-weight: bold;
+}
+
+.linkItem{
+
+  text-decoration: none;
+  color: grey;
+  font-weight: bold;
 }
