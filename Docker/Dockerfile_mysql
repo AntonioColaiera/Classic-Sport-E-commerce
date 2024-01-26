@@ -1,0 +1,11 @@
+# Usa l'immagine ufficiale di MySQL da Docker Hub
+FROM mysql:latest
+
+# Imposta la password di root
+ENV MYSQL_ROOT_PASSWORD=root
+
+# Esponi la porta MySQL
+EXPOSE 3306
+
+# Avvia il server MySQL
+CMD ["mysqld"]

@@ -1,0 +1,50 @@
+version: '3'
+services:
+  # MySQL service
+  db:
+    image: mysql:latest
+    container_name: mysql-container
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: gifts-from-history-e-commerce
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+    networks:
+      - app-network
+
+  # Node.js service
+  node-app:
+    build:
+      context: .
+      dockerfile: Dockerfile_nodejs
+    container_name: nodejs-container
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+
+  # Spring Boot service
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile_springboot
+    container_name: spring-boot-container
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/gifts-from-history-e-commerce?useSSL=false&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      SPRING_DATASOURCE_DRIVER-CLASS-NAME: com.mysql.cj.jdbc.Driver
+      SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: org.hibernate.dialect.MySQLDialect
+      SPRING_JPA_HIBERNATE_DDL-AUTO: update
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
