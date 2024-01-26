@@ -15,39 +15,39 @@ export default function CartItems() {
   const checkoutCode = uuidv4();
 
   useEffect(() => {
-    // Carica gli elementi del carrello da localStorage
+    // Load cart items from localStorage
     const savedCartItems = JSON.parse(localStorage.getItem("cartItems"));
     if (savedCartItems) {
       dispatch({ type: "LOAD_CART_ITEMS", payload: savedCartItems });
       localStorage.setItem("cartUpdated", "false");
     }
 
-    // Imposta il codice di checkout in localStorage
+    // Set checkout code in localStorage
     localStorage.setItem("checkoutCode", checkoutCode);
   }, []);
 
   useEffect(() => {
-    // Aggiorna il codice di checkout in localStorage quando cambia
+    // Update checkout code in localStorage when it changes
     localStorage.setItem("checkoutCode", checkoutCode);
 
-    // Imposta la flag 'cartUpdated' su 'true' quando cartItems cambia
+    // Set 'cartUpdated' flag to 'true' when cartItems change
     localStorage.setItem("cartUpdated", "true");
   }, [cartItems]);
 
-  // Funzione per gestire la rimozione di un elemento dal carrello
+  // Function to handle removing an item from the cart
   const handleRemoveItem = (item) => {
-    dispatch(removeItem(item)); // Dispatch dell'azione per rimuovere un elemento dal carrello
+    dispatch(removeItem(item)); // Dispatch action to remove an item from the cart
   };
 
-  // Funzione per gestire l'incremento della quantità di un elemento nel carrello
+  // Function to handle increasing the quantity of an item in the cart
   const handleIncrementQuantity = (item) => {
-    dispatch(updateQuantity(item, item.quantity + 1)); // Aggiorna la quantità dell'elemento nel carrello
+    dispatch(updateQuantity(item, item.quantity + 1)); // Update quantity of the item in the cart
   };
 
-  // Funzione per gestire la riduzione della quantità di un elemento nel carrello
+  // Function to handle decreasing the quantity of an item in the cart
   const handleDecrementQuantity = (item) => {
     if (item.quantity > 1) {
-      dispatch(updateQuantity(item, item.quantity - 1)); // Aggiorna la quantità dell'elemento nel carrello
+      dispatch(updateQuantity(item, item.quantity - 1)); // Update quantity of the item in the cart
     }
   };
 
@@ -61,16 +61,16 @@ export default function CartItems() {
 
   return (
     <div>
-      {cartItems.length === 0 ? ( // Condizione: se il carrello è vuoto
+      {cartItems.length === 0 ? ( // Condition: if the cart is empty
         <div>
           <img src='/assets/cartEmpty.jpg' alt='The cart is empty' />
-          <p>The cart is empty</p> {/* Messaggio se il carrello è vuoto */}
+          <p>The cart is empty</p> {/* Message if the cart is empty */}
         </div>
       ) : (
-        // Se ci sono elementi nel carrello
+        // If there are items in the cart
         <div>
           <p>Total Cart Price: ${calculateTotalPrice()}</p>{" "}
-          {/* Visualizza il prezzo totale del carrello */}
+          {/* Display total cart price */}
           {cartItems.length > 0 && (
             <Link to={`/checkout/${checkoutCode}`}>
               <button className='proceed-button'>
@@ -81,32 +81,31 @@ export default function CartItems() {
           {cartItems.map((item) => (
             <div key={item.id} className='item'>
               {" "}
-              {/* Elemento individuale nel carrello */}
+              {/* Individual item in the cart */}
               <img
                 src={`/assets/items/${item.image}`}
                 loading='lazy'
                 alt={item.title}
-                className="image"
+                className='image'
               />
               <h2>{item.title}</h2>
-              <p>Unit Price: ${item.price}</p>{" "}
-              {/* Prezzo unitario dell'elemento */}
+              <p>Unit Price: ${item.price}</p> {/* Unit price of the item */}
               <p>Quantity: {item.quantity}</p>{" "}
-              {/* Quantità dell'elemento nel carrello */}
+              {/* Quantity of the item in the cart */}
               <button onClick={() => handleDecrementQuantity(item)}>
                 -
               </button>{" "}
-              {/* Pulsante per diminuire la quantità */}
+              {/* Button to decrease quantity */}
               <button onClick={() => handleIncrementQuantity(item)}>
                 +
               </button>{" "}
-              {/* Pulsante per aumentare la quantità */}
+              {/* Button to increase quantity */}
               <p>Total Price: ${item.total}</p>{" "}
-              {/* Prezzo totale per l'elemento (quantità * prezzo unitario) */}
+              {/* Total price for the item (quantity * unit price) */}
               <button onClick={() => handleRemoveItem(item)}>
                 Remove
               </button>{" "}
-              {/* Pulsante per rimuovere l'elemento dal carrello */}
+              {/* Button to remove the item from the cart */}
             </div>
           ))}
         </div>

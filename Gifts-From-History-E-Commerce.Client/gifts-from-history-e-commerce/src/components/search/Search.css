@@ -1,30 +1,23 @@
-/* Search.css */
-
 .search-container {
-    position: top;
-  
-  }
-  
-  .search-overlay {
-    position: fixed; /* Utilizza position: fixed per sovrapporre la ricerca sopra la pagina */
-    top: 0;
-    left: 0;
-    width: 25%;
-    height: 70%;
-    background: rgba(255, 255, 255, 0.9); /* Imposta uno sfondo semitrasparente */
-    border-radius: 3%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000; /* Imposta uno z-index alto per sovrapporre la ricerca sopra il contenuto */
-  }
-  
-  .search-input-container {
-    width: 50%;
-    height: 90%;
-    color: aliceblue;
- 
-  }
-  
-  /* Aggiungi stili aggiuntivi a tuo piacimento */
-  
+  position: top;
+}
+
+.search-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 25%;
+  height: 70%;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.search-input-container {
+  width: 50%;
+  height: 90%;
+  color: aliceblue;
+}

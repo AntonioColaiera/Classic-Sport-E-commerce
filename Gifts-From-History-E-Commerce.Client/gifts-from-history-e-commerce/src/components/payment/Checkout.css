@@ -1,4 +1,3 @@
-/* Checkout.css */
 .checkout-container {
     display: flex;
   }
@@ -9,16 +8,16 @@
   }
   
   .left-section {
-    flex: 0.65; /* Sezione sinistra - 65% */
+    flex: 0.65; 
     min-height: 100vh;
   }
   
   .right-section {
-    flex: 0.35; /* Sezione destra - 35% */
+    flex: 0.35; 
     min-height: 100vh;
   }
 
   .image{
-    flex: 0.35; /* Sezione destra - 35% */
+    flex: 0.35; 
   }
   

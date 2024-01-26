@@ -1,16 +1,12 @@
-/* styles/Modal.css */
-
-/* Stile per l'overlay del modal */
 .react-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* Imposta l'opacità dell'overlay */
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
-/* Stile per il contenuto del modal */
 .react-modal-content {
   display: flex;
   flex-direction: column;
@@ -20,17 +16,17 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 60%; /* Imposta la larghezza desiderata */
-  max-height: 80%; /* Imposta l'altezza massima desiderata */
-  overflow: auto; /* Aggiunge uno scroll se il contenuto è troppo grande */
+  width: 60%;
+  max-height: 80%;
+  overflow: auto;
   background-color: aliceblue;
   border: 8px solid black;
   border-radius: 4px;
   padding: 20px;
-  z-index: 1000
+  z-index: 1000;
 }
 
-.formLogin{
+.formLogin {
   background-color: beige;
   border: solid black;
   border-radius: 20px;
@@ -38,26 +34,23 @@
   text-align: center;
 }
 
-.closeButton{
-
-  top: 10px; 
+.closeButton {
+  top: 10px;
   left: 10px;
   position: absolute;
   background-color: black;
   color: aliceblue;
-  size: 1em; 
+  size: 1em;
   border-radius: 20px;
-  border:  5px solid aliceblue;
+  border: 5px solid aliceblue;
   cursor: pointer;
 }
 
-
-.signIn{
-
+.signIn {
   border-radius: 20px;
-  border:  5px solid aliceblue;
+  border: 5px solid aliceblue;
   background-color: gold;
-  border:  1px solid yellow;
+  border: 1px solid yellow;
   cursor: pointer;
 }
 
@@ -76,12 +69,11 @@
   cursor: pointer;
 }
 
-.logOut{
-
+.logOut {
   border-radius: 20px;
-  border:  5px solid aliceblue;
+  border: 5px solid aliceblue;
   background-color: gold;
-  border:  1px solid yellow;
+  border: 1px solid yellow;
   cursor: pointer;
 }
 
@@ -93,7 +85,6 @@
 }
 
 .userdetails {
-
   margin-left: 1.3em;
   margin-bottom: 1em;
 }

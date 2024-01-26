@@ -10,7 +10,7 @@ export const Login = async (email, password) => {
 
     if (response.ok) {
       const data = await response.json();
-      // You can return any additional data obtained from the backend, if necessary
+      // Return any additional data obtained from the backend, if needed
       return data;
     } else {
       throw new Error("Authentication failed");
@@ -19,7 +19,3 @@ export const Login = async (email, password) => {
     throw new Error("An error occurred during authentication");
   }
 };
-
-
-
-

@@ -1,18 +1,14 @@
 .carousel-item {
-  /* Aggiungi qui gli stili per l'elemento del carosello */
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-size: cover;
   background-position: center;
-  position: relative; /* Aggiunto per posizionare l'indicatore all'interno dell'elemento del carosello */
-  height: 400px; 
- 
- 
+  position: relative;
+  height: 400px;
 }
 
 .carousel-button {
-  /* Rimuovi lo sfondo dai pulsanti del carosello */
   background: none;
   color: white;
   border: none;
@@ -21,21 +17,17 @@
   font-size: 2em;
 }
 
-
 .carousel-content {
-  /* Aggiungi qui gli stili per il contenuto del carosello */
   color: white;
   text-align: center;
   padding: 20px;
   background-color: aliceblue;
   border-radius: 15%;
-  background-color: rgba(219, 206, 206, 0.5); 
+  background-color: rgba(219, 206, 206, 0.5);
   width: 100%;
-
 }
 
 .carousel-indicator {
-  /* Aggiungi qui gli stili per l'indicatore del carosello */
   position: absolute;
   bottom: 0;
   left: 0;
@@ -47,25 +39,18 @@
   cursor: pointer;
 }
 
-  
-
-
-.description{
-  color:  black;
+.description {
+  color: black;
   font-size: 1.15em;
   font-weight: bold;
-
 }
-  
 
-
-.name{
+.name {
   color: black;
   font-weight: bold;
 }
 
-.linkItem{
-
+.linkItem {
   text-decoration: none;
   color: grey;
   font-weight: bold;

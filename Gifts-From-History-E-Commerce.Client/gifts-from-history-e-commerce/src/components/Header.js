@@ -12,7 +12,7 @@ const Header = () => {
         <a href="#">Free shipping*</a>
         <a href="#">Returns in 100 days</a>
       </div>
-      {/* Altri elementi del header */}
+      {/* others elements*/}
     </header>
   );
 };

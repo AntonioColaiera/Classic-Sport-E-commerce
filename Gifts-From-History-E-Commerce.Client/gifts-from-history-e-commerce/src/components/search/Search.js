@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { IoMdSearch } from 'react-icons/io';
-import Fuse from 'fuse.js'; // Importa Fuse.js
+import Fuse from 'fuse.js'; // Import Fuse.js
 import './Search.css';
 import { Link } from 'react-router-dom';
 
@@ -17,7 +17,7 @@ export default function Search() {
   const handleSearch = (e) => {
     const searchTerm = e.target.value;
 
-    // Utilizza Fuse.js per ottenere i risultati della ricerca
+    // Use Fuse.js to get search results
     const fuse = new Fuse(searchData, {
       keys: ['title', 'content', 'link'],
       threshold: 0.3,
@@ -34,12 +34,11 @@ export default function Search() {
   };
 
   useEffect(() => {
-    // Simula il caricamento di dati da una fonte esterna
+    // Simulate loading data from an external source
     const fetchData = async () => {
-      // Esempio di dati con 'title' e 'content'
+      // Example data with 'title' and 'content'
       const data = [
         { title: 'Sports Athletics', content: 'Information about sports and athletics', link: '/sports/athletics'  },
-        
       ];
 
       setSearchData(data);
@@ -72,12 +71,10 @@ export default function Search() {
             />
             <ul>
             {searchResults.map((result) => (
-  <li key={result.item.title}>
-   
-    <p><Link to={result.item.link}>  <strong>{result.item.title}</strong> </Link></p>
-  </li>
-))}
-
+              <li key={result.item.title}>
+                <p><Link to={result.item.link}><strong>{result.item.title}</strong></Link></p>
+              </li>
+            ))}
             </ul>
           </div>
         </div>

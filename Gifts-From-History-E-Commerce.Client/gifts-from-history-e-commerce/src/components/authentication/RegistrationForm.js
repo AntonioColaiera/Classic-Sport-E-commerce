@@ -9,10 +9,10 @@ const RegistrationForm = () => {
     lastName: "",
     email: "",
     password: "",
-    country: "", // Aggiungi il campo Country
-    city: "", // Aggiungi il campo City
-    address: "", // Aggiungi il campo Address
-    phone: "", // Aggiungi il campo Phone
+    country: "", 
+    city: "", 
+    address: "", 
+    phone: "", 
   });
 
   // Function to handle changes in form fields

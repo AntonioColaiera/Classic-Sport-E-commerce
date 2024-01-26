@@ -1,25 +1,29 @@
 import { TOGGLE_CART, ADD_ITEM, REMOVE_ITEM, UPDATE_QUANTITY } from '../actions/cartAction';
 
+// Initial state of the cart
 const initialState = {
-  cartOpen: false,
-  cartItems: [],
+  cartOpen: false, // Cart visibility
+  cartItems: [], // Array to hold cart items
 };
 
+// Reducer function to manage cart state
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
+    // Toggle the cart visibility
     case TOGGLE_CART:
       return {
         ...state,
         cartOpen: !state.cartOpen,
       };
+    // Add an item to the cart
     case ADD_ITEM: {
-      // Find the index of the existing item in the cart
+      // Check if the item already exists in the cart
       const existingItemIndex = state.cartItems.findIndex(
         (item) => item.id === action.payload.id
       );
 
       if (existingItemIndex >= 0) {
-        // Update the quantity and total price of the existing item
+        // If the item exists, update its quantity and total price
         const updatedItem = {
           ...state.cartItems[existingItemIndex],
           quantity: state.cartItems[existingItemIndex].quantity + action.payload.quantity,
@@ -32,7 +36,7 @@ const cartReducer = (state = initialState, action) => {
 
         return { ...state, cartItems: updatedItems };
       } else {
-        // Add a new item to the cart
+        // If the item doesn't exist, add it to the cart
         const newItem = {
           ...action.payload,
           quantity: action.payload.quantity,
@@ -42,37 +46,37 @@ const cartReducer = (state = initialState, action) => {
         return { ...state, cartItems: [...state.cartItems, newItem] };
       }
     }
+    // Remove an item from the cart
     case REMOVE_ITEM:
       return {
         ...state,
         cartItems: state.cartItems.filter(item => item.id !== action.payload.id),
       };
-      case UPDATE_QUANTITY: {
-        const updatedCartItems = state.cartItems.map((item) => {
-          if (item.id === action.payload.id) {
-            return {
-              ...item,
-              quantity: action.payload.quantity,
-              total: item.price * action.payload.quantity,
-            };
-          }
-          return item;
-        });
-      
-        return {
-          ...state,
-          cartItems: updatedCartItems,
-        };
-      }
-      
-      
-      case 'LOAD_CART_ITEMS':
-  return {
-    ...state,
-    cartItems: action.payload, // Sovrascrivi gli elementi del carrello con quelli caricati da localStorage
-  };
-
-  
+    // Update the quantity of an item in the cart
+    case UPDATE_QUANTITY: {
+      const updatedCartItems = state.cartItems.map((item) => {
+        if (item.id === action.payload.id) {
+          return {
+            ...item,
+            quantity: action.payload.quantity,
+            total: item.price * action.payload.quantity,
+          };
+        }
+        return item;
+      });
+    
+      return {
+        ...state,
+        cartItems: updatedCartItems,
+      };
+    }
+    // Load cart items from storage
+    case 'LOAD_CART_ITEMS':
+      return {
+        ...state,
+        cartItems: action.payload, // Overwrite cart items with those loaded from localStorage
+      };
+    // Default case: return current state if action type is not recognized
     default:
       return state;
   }

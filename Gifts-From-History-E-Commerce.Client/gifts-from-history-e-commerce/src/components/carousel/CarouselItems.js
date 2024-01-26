@@ -2,14 +2,13 @@ import SocratesSculpture from "../../assets/items/Socratessculpture.jpg";
 import DavidLivingstonposter from "../../assets/items/DavidLivingstonposter.png";
 import MartinLutherT_shirt from "../../assets/items/MartinLutherT-shirt.png";
 
-
 export const CarouselItems = [
   {
     title: "SOCRATES",
-    description: "Marble ring-shaped sculpture of the ancient Greek philosopher Socrates",
+    description:
+      "Marble ring-shaped sculpture of the ancient Greek philosopher Socrates",
     image: SocratesSculpture,
     link: "./historic_characters/Socrates",
-    
   },
   {
     title: "DAVID LIVINGSTON",

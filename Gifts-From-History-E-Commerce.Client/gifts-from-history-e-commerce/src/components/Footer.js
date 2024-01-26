@@ -13,7 +13,7 @@ const Footer = () => {
         <a href="#">FAQ</a>
         <a href="#">Contacts</a>
       </div>
-      {/* Altri elementi del footer */}
+      {/* others elements */}
     </footer>
   );
 };

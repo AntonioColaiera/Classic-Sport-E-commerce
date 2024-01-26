@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import cartReducer from '../reducers/cartReducer';
 import { loadCartItems } from '../actions/cartAction';
 
-// Carica lo stato dal localStorage
+// Load state from localStorage
 const loadState = () => {
   try {
     const serializedState = localStorage.getItem('cartItems');
@@ -15,13 +15,13 @@ const loadState = () => {
   }
 };
 
-// Salva lo stato nel localStorage
+// Save state to localStorage
 const saveState = (state) => {
   try {
     const serializedState = JSON.stringify(state.cart.cartItems);
     localStorage.setItem('cartItems', serializedState);
   } catch {
-    // Ignora gli errori di scrittura
+    // Ignore write errors
   }
 };
 
@@ -34,7 +34,7 @@ const store = configureStore({
   preloadedState: persistedState,
 });
 
-// Aggiunto codice per caricare gli elementi del carrello all'avvio dello store
+// Added code to load cart items on store initialization
 const initialCartItems = store.getState().cart.cartItems;
 if (initialCartItems.length === 0) {
   const loadedItems = loadState();

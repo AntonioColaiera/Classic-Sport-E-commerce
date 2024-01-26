@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./components/redux/stores/Store";
@@ -34,10 +34,12 @@ rootContainer.render(
   <React.StrictMode>
     <Provider store={store}>
       <Router>
-        <InfoBar/>
+        {/* Display InfoBar component */}
+        <InfoBar />
         <Header />
         <Navbar />
         <Routes>
+          {/* Define routes for different pages */}
           <Route path='/' element={<App />} />
           <Route path='/account/register' element={<RegistrationForm />} />
           <Route path='/checkout/:code' element={<Checkout />} />
